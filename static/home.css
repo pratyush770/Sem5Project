@@ -89,7 +89,7 @@ input[type="text"].inp_text1{
     width:500px;
     outline: none;
     margin-top: 30px;
-    margin-left:180px;
+    margin-left:200px;
     padding-left:20px;
     border:0.1px solid lightgray;
 }
@@ -98,14 +98,6 @@ input[type="text"].inp_text1:hover{
     border-color: rgba(234,76,137,0.4);
     background-color: #fff;
     box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-}
-.fa-search {
-    position: relative;
-    left:90vh;
-    /* left: 93vh; */
-    font-size:18px;
-    color:gray;
-    cursor: pointer;
 }
 header{
     background:#e5e4e2;

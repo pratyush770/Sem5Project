@@ -110,17 +110,3 @@ if(isset($_POST['submit']))
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-
-<div class="subscription-card">
-        <h2 class="head"><?php echo $row['plan'];?></h2>
-        <hr>
-          <h2 class="head1"> Number of buildings : <?php echo $row['wing'];?> wing</h2>
-          <p> <i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Plastic Waste Collection</p>
-          <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Paper Waste Collection</p>
-          <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Cloth Waste Collection</p>
-          <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;E-waste Collection</p>
-        <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p>
-        <a href="subscription_form.php" style="text-decoration:none;"><button>Schedule Pickup</button></a>
-      </div>
-      <?php
-      ?>

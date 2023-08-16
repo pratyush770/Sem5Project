@@ -1,9 +1,9 @@
-<!-- <?php
-//require_once 'connection1.php';
+<?php
+require_once 'connection1.php';
 
-//$sql="SELECT * FROM subscription";
-//$all_sub=$con->query($sql);
-?> -->
+$sql="SELECT * FROM subscription";
+$all_sub=$con->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,23 +28,23 @@
           <div class="toggle"></div>
         </ul>
     </nav>
-    <header style="height:62px;">
+    <header>
       <ul>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="active"><i class="fa-solid fa-basket-shopping"></i>
               Shop by Category
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../templates/ewaste.php">E-Waste</a></li>
+              <li><a class="dropdown-item" href="../templates/ewaste.php"><span class="drop_span1">E-Waste</span></a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="../templates/plastic.php">Plastic Waste</a></li>
+              <li><a class="dropdown-item" href="../templates/plastic.php"><span class="drop_span2">Plastic Waste</span></a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="../templates/paper.php"><span>Paper</span></a></li>
+              <li><a class="dropdown-item" href="../templates/paper.php"><span class="drop_span3">Paper</span></a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="../templates/cloth.php">Clothes</a></li>
+              <li><a class="dropdown-item" href="../templates/cloth.php"><span class="drop_span4">Clothes</span></a></li>
             </ul>
             <a href="../templates/subscription.php" class="alink"><li class="active"><i class="fa-solid fa-sack-dollar"></i> Subscription </li> </a>
-            <a href="../templates/about.php" class="alink"><li class="active"><i class="fa-solid fa-circle-info"></i> About Us</li></a>
+            <a href="../templates/about.php" class="alink"><li class="active1" id="about_us"><i class="fa-solid fa-circle-info"></i> About Us</li></a>
           <a href="../templates/contact.php" class="alink"><li class="active"><i class="fa-solid fa-phone"></i> Contact Us</li></a>
           <a href="../templates/feedback.php" class="alink"><li class="active"><i class="fa-solid fa-clipboard"></i> Feedback</li> </a>
       </ul>
@@ -52,23 +52,23 @@
     </div>
     <h2 class="subhead">Our Subscription</h2>
     <div class="subscription-container">
-    <!-- <?php
- // while($row = mysqli_fetch_assoc($all_sub)){ 
-  ?> -->
+    <?php
+     while($row = mysqli_fetch_assoc($all_sub)){ 
+  ?>
   <div class="subscription-card">
-        <h2 class="head">1 month plan</h2>
+        <h2 class="head"><?php echo $row['plan'];?></h2>
         <hr>
-          <h2 class="head1"> Number of buildings : 3 wing</h2>
+          <h2 class="head1"> Number of buildings : <?php echo $row['wing'];?> wing</h2>
           <p> <i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Plastic Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Paper Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Cloth Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;E-waste Collection</p>
-        <p><strong>Price: &#8377;3000 </strong></p>
+        <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p>
         <a href="subscription_form.php" style="text-decoration:none;"><button>Schedule Pickup</button></a>
       </div>
-      <!-- <?php
-  //}
-  ?> -->
+      <?php
+  }
+  ?>
   </div>
     <div>
         <footer>
@@ -82,17 +82,17 @@
                  <h4 style="text-transform: uppercase; color:yellow" class="quick_li">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Quick links</h4>
                  <ul style="margin-top: 15px;">
                   <a href="../templates/subscription.php" class="quick"><li class="quick_li1"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Subscription</li></a>
-                  <a href="../templates/about.php" class="quick"><li class="quick_li1"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;About Us</li></a>
-                  <a href="../templates/contact.php" class="quick"><li class="quick_li1"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Contact Us</li></a>
-                  <a href="../templates/feedback.php" class="quick"><li class="quick_li1"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Feedback</li></a>
+                  <a href="../templates/about.php" class="quick"><li class="quick_li2"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;About Us</li></a>
+                  <a href="../templates/contact.php" class="quick"><li class="quick_li3"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Contact Us</li></a>
+                  <a href="../templates/feedback.php" class="quick"><li class="quick_li4"> &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Feedback</li></a>
                    </li>
                  </ul>
                </div>
                 <div class="footer-column">
-                  <h4 style="text-transform: uppercase;color:yellow">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Contact Us</h4>
-                  <p style="margin-top: 15px;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Email: <span class="con_span1">let'sclean@gmail.com</span></p>
-                  <p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Phone : 982-456-7890</p>
-                  <p>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Address: 593 Ganesh <span class="con_span2"> Peth, </span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="con_span3">Near Balaji </span> <span class="con_span4">Mandir, Pune.</span></p>
+                  <h4 style="text-transform: uppercase;color:yellow" class="contact">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Contact Us</h4>
+                  <p style="margin-top: 15px;" class="contact_p1">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Email: <span class="con_span1">let'sclean@gmail.com</span></p>
+                  <p class="contact_p2">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Phone : 982-456-7890</p>
+                  <p class="contact_p3">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Address: 593 Ganesh <span class="con_span2"> Peth, </span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="con_span3">Near Balaji </span> <span class="con_span4">Mandir, Pune.</span></p>
                 </div>
                 <div class="footer-column">
                   <h4 style="text-transform: uppercase;color:yellow" class="follow">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Follow Us</h4>
