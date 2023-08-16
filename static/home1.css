@@ -1,0 +1,101 @@
+#cartb {
+    position: relative;
+    background-color: rgb(230, 34, 77);
+    border-radius: 5px;
+    /* padding: 1px; */
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 150px;
+    height: 35px;
+    color: #fff;
+    border: none;
+    top: -45px;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+    /* margin-bottom: -20px; */
+    margin-left:15px;
+    }
+    
+    #cartb::before {
+    content: "";
+    background-color: rgb(248, 50, 93);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 700ms ease-in-out;
+    display: inline-block;
+    }
+    
+    #cartb:hover::before {
+    width: 100%;
+    }
+    .modal-body{
+      text-align: center;
+      font-size: 25px;
+      font-family:'Poppins';
+    }
+    .modal-footer button{
+      margin-right:100px;
+    }
+    .modal .modal-dialog{
+      margin-top: 300px;
+    }
+    main{
+      max-width: 1500px;
+      width:85%;
+      margin:-10px auto;
+      /* flex-wrap: wrap;
+      justify-content: space-between; */
+    
+      /* margin: auto; */
+    }
+    main .card{
+      max-width: 300px;
+      display: inline-block;
+      /* flex:1 1 300px; */
+      /* text-align: center; */
+      height:350px;
+      border: 1px solid lightgray;
+      margin-top: 10px;
+      /* margin:40px; */
+      width:260px;
+      margin:30px; 
+      margin-left: 28px;
+      box-shadow: none;
+    }
+    .dark main .card:hover{
+        box-shadow: none;
+    }
+    main .card:hover{
+        box-shadow: none;
+    }
+    main .card .image{
+      height: 50%;
+      margin-bottom: 30px;
+    }
+    main .card img{
+      object-fit: cover;
+      width: 100%;
+      height:130%;
+    }
+    main .card .caption{
+      padding-left: 1em;
+      text-align: left;
+      line-height: 0.5em;
+      height:25%;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top:70px;
+    }
+    main .card .caption p{
+      font-size: 1.1rem;
+    }
+    main .card button{
+      width:50%;
+      margin-top:15px;
+      margin-left:60px;
+    }

@@ -1,0 +1,363 @@
+body{
+  background-color: #fff;
+  color:#1e272e;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box; 
+}
+body.dark{
+    background-color: #1e272e;
+} 
+.dark .para{
+  color:#f1f2f6;
+}
+.dark .para1{
+  color:#f1f2f6;
+}
+.dark .collection-card h4{
+  color:#f1f2f6;
+}
+.dark .collection-card p{
+  color:#f1f2f6;
+}
+.dark .collection-card:hover{
+  box-shadow: 0 6px 16px 0 lightgreen;
+}
+.mynavbar{
+  top:0;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+nav{
+    background:whitesmoke ;
+    height:105px;
+    width: 100%;
+}
+.logo{
+    height:75px;
+    width:230px;
+    margin-left: 55px;
+}
+nav ul{
+  float:right;
+  margin-right:180px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 100px;
+  margin:0 30px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:20px;
+  color:green; 
+}
+nav ul .myli{ 
+position: relative;
+}
+nav ul .myli:hover{
+  color:green;
+}
+nav ul .myli:after{
+  content: '';
+  height: 2px;
+  width:100%;
+  background:#2e8b57;
+  position: absolute;
+  left:0;
+  bottom:30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.7s;
+}
+nav ul .myli:hover::after{
+  width: 100%;
+}
+nav ul .myli:hover::after,nav ul.myli:focus::after{
+  opacity: 1;
+}
+input[type="text"].inp_text1{
+  height: 40px;
+  width:500px;
+  outline: none;
+  margin-top: 30px;
+  margin-left:180px;
+  padding-left:20px;
+  border:0.1px solid lightgray;
+}
+input[type="text"].inp_text1:hover{
+  outline: none;
+  border-color: rgba(234,76,137,0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+.fa-search {
+  position: relative;
+  left:90vh;
+  /* left: 93vh; */
+  font-size:18px;
+  color:gray;
+  cursor: pointer;
+}
+header{
+  background:#e5e4e2;
+  /* height: 60px; */
+  position: static;
+}
+header ul{
+  float: left;
+  margin-left: 140px;
+}
+header ul li{
+  display:inline-block;
+  color: white;
+  line-height: 25px;
+  margin: 0 40px;
+  font-size: 20px;
+  color:white;
+}
+#active{
+  background:#77dd77;
+  transition: .5s;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+#active:hover{
+  background:#2e8b57;
+}
+.active{
+  background:#77dd77;
+  transition: .5s;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+} 
+.active:hover{
+  background:#2e8b57;
+}
+
+.alink{
+    color:white;
+    text-decoration: none;
+}
+
+
+/* Reset some default styles for consistency */
+
+ 
+  
+  main {
+    margin-top: 165px;
+    padding: 2rem 0;
+  }
+  
+  main h2 {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-top: 90px;
+    margin-bottom: 1rem;
+  }
+  .collection-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  
+  .collection-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: calc(25% - 20px); /* 25% width for each card with 20px gap between them */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid green;
+  }
+  .collection-card:hover {
+    box-shadow: 0 6px 16px 0 lightgreen;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  /* Footer Styles */
+footer {
+    background: #177245;
+    /* background-color: #000; */
+    color: #fff;
+    padding: 30px 0;
+
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  } 
+  .footer-column {
+    flex-basis: 20%;
+    margin-bottom: 20px;
+    margin-bottom: -40px;
+  }
+  .footer-column1 {
+    flex-basis: 18%;
+    margin-bottom: 20px;
+    margin-bottom: -40px;
+  }
+  
+  .footer-column p {
+    margin-bottom: 5px;
+  }
+  .social-icons {
+    margin-top: 20px;
+  }
+  .social-icons li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 23px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #a49eeb;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: -30px;
+  }
+  
+  .footer-bottom p {
+    color: #ccc;
+    font-size: 17px;
+  }
+  .quick{
+    color:white;
+    text-decoration: none;
+    list-style-type: none;
+}
+footer ul{
+    padding:0;
+}
+footer ul li{
+    margin-top: 12px;
+}
+.myImg{
+  margin-top:-18px;
+  margin-left:100px;
+  height:549px;
+  width:1000px;
+  border-radius: 10px;
+}
+.para{
+  margin-left:1150px;
+  margin-right: 70px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.750);
+  margin-top: 45px;
+}
+.parahr{
+  margin-left:100px;
+  margin-right: 100px;
+  margin-top:10px;
+}
+.para1{
+  margin-left:100px;
+  margin-right: 100px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.750);
+}
+.button{
+  background-color: white;
+  width: 50px;
+  height: 25px;
+  border-radius: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+  margin-top:0px;
+  top:38px;
+  margin-bottom: 32px;
+  border : 2px solid black;
+}
+.button::before{
+  position: absolute;
+  content: '';
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 200px;
+  margin-top:1px;
+  margin-left:1.9px;
+  transition: 0.2s;
+}
+input:checked + .button{
+  background-color: black;
+}
+input:checked + .button::before{
+  transform: translateX(24px);
+  background-color: white;
+}
+input[type="checkbox"]{
+  display: none;
+}
+.toggle{
+  background-color: white;
+  width: 50px;
+  height: 25px;
+  border-radius: 200px;
+  cursor: pointer;
+  position: relative;
+  top:-60px;
+  left:220px;
+  margin-bottom: -24px;
+  border : 2px solid black;
+  transition: 0s;
+}
+.toggle::before{
+  position: absolute;
+  content: '';
+  background-color: #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 200px;
+  margin-top:1px;
+  margin-left:1.7px;
+  transition: translateY(-50%);
+  transition: all 0s ease-in-out;
+}
+.toggle.active{
+  background-color: black;
+  transition: 0s;
+}
+.toggle.active::before{
+  background-color: #fff;
+  left:calc(100% - 23px);
+  top:0%;
+  transition: 0s;
+}
+.toggle.active:hover{
+  background-color: black;
+}
+.dropdown .dropdown-menu{
+  margin-top: 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+} 
