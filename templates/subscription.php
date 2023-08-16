@@ -1,9 +1,9 @@
-<?php
-require_once 'connection1.php';
+<!-- <?php
+//require_once 'connection1.php';
 
-$sql="SELECT * FROM subscription";
-$all_sub=$con->query($sql);
-?>
+//$sql="SELECT * FROM subscription";
+//$all_sub=$con->query($sql);
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +20,7 @@ $all_sub=$con->query($sql);
   <div class="mynavbar">
     <nav>
         <a href="../templates/home.php" class="alink1"><img class="logo" src="../static/images/22baf73169f8401fb664a518b53c35aa-Lets Clean - Logo-01.png"></a>
-        <i class="fa-solid fa-search"></i> </button>
-            <input type="text" placeholder="Search by product name" id="find" onkeyup="search()" class="inp_text1">
+        <input type="text" placeholder="Search by product name" id="find" onkeyup="search()" class="inp_text1">
         <ul>
         <a href="../templates/cart.php"><li class="myli"><i class="fa-solid fa-cart-plus icon" style="position: relative;top:5px;font-size: 23px;color:green;" ></i>  
           <span class="span1" id="badge" style="  position: relative; width:10px;height:50px;top:-26px;right:27%;background: green;color: white; border-radius: 50%;padding:2px 6px;font-size: 14px;">0</span>
@@ -40,7 +39,7 @@ $all_sub=$con->query($sql);
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="../templates/plastic.php">Plastic Waste</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="../templates/paper.php">Paper</a></li>
+              <li><a class="dropdown-item" href="../templates/paper.php"><span>Paper</span></a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="../templates/cloth.php">Clothes</a></li>
             </ul>
@@ -53,23 +52,23 @@ $all_sub=$con->query($sql);
     </div>
     <h2 class="subhead">Our Subscription</h2>
     <div class="subscription-container">
-    <?php
-  while($row = mysqli_fetch_assoc($all_sub)){ 
-  ?>
+    <!-- <?php
+ // while($row = mysqli_fetch_assoc($all_sub)){ 
+  ?> -->
   <div class="subscription-card">
-        <h2 class="head"><?php echo $row['plan'];?></h2>
+        <h2 class="head">1 month plan</h2>
         <hr>
-          <h2 class="head1"> Number of buildings : <?php echo $row['wing'];?> wing</h2>
+          <h2 class="head1"> Number of buildings : 3 wing</h2>
           <p> <i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Plastic Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Paper Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Cloth Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;E-waste Collection</p>
-        <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p>
+        <p><strong>Price: &#8377;3000 </strong></p>
         <a href="subscription_form.php" style="text-decoration:none;"><button>Schedule Pickup</button></a>
       </div>
-      <?php
-  }
-  ?>
+      <!-- <?php
+  //}
+  ?> -->
   </div>
     <div>
         <footer>
@@ -93,7 +92,7 @@ $all_sub=$con->query($sql);
                   <h4 style="text-transform: uppercase;color:yellow">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Contact Us</h4>
                   <p style="margin-top: 15px;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Email: let'sclean@gmail.com</p>
                   <p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; Phone : 982-456-7890</p>
-                  <p>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Address: 593 Ganesh Peth, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Near Balaji Mandir,Pune-42.</p>
+                  <p>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Address: 593 Ganesh Peth, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>Near Balaji Mandir, Pune.</span></p>
                 </div>
                 <div class="footer-column">
                   <h4 style="text-transform: uppercase;color:yellow">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Follow Us</h4>
