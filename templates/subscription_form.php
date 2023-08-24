@@ -4,9 +4,9 @@ if(isset($_POST['Click'])){
     $sname = $_POST['sname'];
     $semail = $_POST['semail'];
     $sstate = $_POST['sstate'];
-    $stime = $_POST['stime'];
+    $time = $_POST['time'];
 
-    $sql = "INSERT INTO subscription_form(sname,semail,sstate,stime) VALUES ('$sname','$semail','$sstate','$stime')";
+    $sql = "INSERT INTO subscription_form(sname,semail,sstate,time) VALUES ('$sname','$semail','$sstate','$time')";
     $result=mysqli_query($con,$sql);
     if($result)
     {
@@ -55,7 +55,7 @@ if(isset($_POST['Click'])){
         </div>
         <div class="input-container">
             <label for="time">Time</label>
-            <input type="text" id="time" placeholder="12:00:PM" name="stime" required>
+            <input type="time" value="12:00" name="time" required>
         </div> <br>
         <button type="submit" class="submit" name="Click">
             Submit

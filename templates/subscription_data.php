@@ -49,7 +49,7 @@
                                     <td><?php echo $row['sname']; ?></td>
                                     <td><?php echo $row['semail']; ?></td>
                                     <td><?php echo $row['sstate']; ?></td>
-                                    <td><?php echo $row['stime']; ?></td>
+                                    <td><?php echo $row['time']; ?></td>
                                 </tr>
                                 <?php
                             }
