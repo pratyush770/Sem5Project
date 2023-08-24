@@ -32,7 +32,7 @@ $all_cart=$con->query($sql_cart);
     <h1 style="text-align:center;margin-top:50px;font-size:36px;">List of order data</h1> <br>
     <div class="container mt-2">
         <div class="row justify-content-center">
-            <table class="table table-bordered table-hover" style="border:2px solid lightgray;">
+            <table class="table table-bordered" style="border:2px solid lightgray;">
                 <thead style="border:2px solid lightgray;text-align:center;font-size:18px;">
                     <tr>
                         <th>ID</th>
@@ -42,8 +42,7 @@ $all_cart=$con->query($sql_cart);
                         <th>City</th>
                         <th>State</th>
                         <th>Zip Code</th>
-                        <th>Product</th>
-                        <th>Price</th>
+                        <th>Orders</th>
                     </tr>
                 </thead>
                 <tbody style="border:2px solid lightgray;text-align:center;font-size:17px;">
@@ -62,6 +61,32 @@ $all_cart=$con->query($sql_cart);
                                     <td><?php echo $row['ccity']; ?></td>
                                     <td><?php echo $row['cstate']; ?></td>
                                     <td><?php echo $row['zcode']; ?></td>
+                                    <td>
+                                    <table class="table table-bordered table-hover" style="border:2px solid lightgray;">
+                <thead style="border:2px solid lightgray;text-align:center;font-size:18px;">
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <?php
+                    $i=0;
+                while($row_cart = mysqli_fetch_assoc($all_cart)){ 
+                         $sql = "SELECT * FROM product,payment_details WHERE pid=".$row_cart['pid'];
+                          $all_product=$con->query($sql);
+                          while($row = mysqli_fetch_assoc($all_product)){
+                            ?>
+                    <tr>
+                        <td><?php echo $row['pname'] ;?></td>
+                        <td><?php echo $row['pprice'] ;?></td>
+                    <?php
+                          }
+                        }
+                        ?>
+                </tbody>
+                                    </table>
+                                    </td>
                                 </tr>
                                 <?php
                             }

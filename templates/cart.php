@@ -95,7 +95,10 @@ $all_cart=$con->query($sql_cart);
                     <td><img src="../static/images/<?php echo $row['imgupload'];?>" style="height:150px;width:200px;"alt=""></td>
                     <td><?php echo $row['pname'];?></td>
                     <td><?php echo $row['pprice'];?><input type="hidden" class="iprice" value="<?php echo $row['pprice'];?>"></td>
-                    <td><input class="text-center iquantity" onchange="subTotal()" type="number" name="" value="<?php echo $row['quantity'];?>" min=1 max=5> <br> <br>
+                    <td>
+                      <form action="cart.php" method="POST">
+                      <input class="text-center iquantity" onchange="subTotal()" type="number" name="" value="<?php echo $row['quantity'];?>" min=1 max=5> <br> <br>
+                      </form>
                     <button class="remove btn btn-secondary" data-id="<?php echo $row['pid'];?>">Remove from Cart</button>
                     <td class="itotal"></td>
                   </tr>
@@ -116,7 +119,7 @@ $all_cart=$con->query($sql_cart);
     <button class="btn btn-danger" style="position:relative;float:right;top:60px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
     <form action="login.php" method="POST">
-    <input type="submit" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:60px;right:-330px;">
+    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:60px;right:-330px;">
     </form>
         <footer style="margin-top:170.5px;"> 
             <div class="container">
