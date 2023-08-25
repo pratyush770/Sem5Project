@@ -47,10 +47,9 @@ $all_cart=$con->query($sql_cart);
                 </thead>
                 <tbody style="border:2px solid lightgray;text-align:center;font-size:17px;">
                       <?php
-                      while($row_cart = mysqli_fetch_assoc($all_cart)){ 
-                         $sql = "SELECT * FROM product,payment_details WHERE pid=".$row_cart['pid'];
+                         $sql = "SELECT * FROM payment_details";
                           $all_product=$con->query($sql);
-                          while($row = mysqli_fetch_assoc($all_product)){
+                          foreach ($all_product as $row)
                              
                                 ?>
                                 <tr>
@@ -71,15 +70,14 @@ $all_cart=$con->query($sql_cart);
                 </thead> 
                 <tbody>
                     <?php
-                    $i=0;
                 while($row_cart = mysqli_fetch_assoc($all_cart)){ 
-                         $sql = "SELECT * FROM product,payment_details WHERE pid=".$row_cart['pid'];
-                          $all_product=$con->query($sql);
-                          while($row = mysqli_fetch_assoc($all_product)){
+                         $sql1 = "SELECT * FROM product WHERE pid=".$row_cart['pid'];
+                          $all_product1=$con->query($sql1);
+                          while($row1 = mysqli_fetch_assoc($all_product1)){
                             ?>
                     <tr>
-                        <td><?php echo $row['pname'] ;?></td>
-                        <td><?php echo $row['pprice'] ;?></td>
+                        <td><?php echo $row1['pname'] ;?></td>
+                        <td><?php echo $row1['pprice'] ;?></td>
                     <?php
                           }
                         }
@@ -89,8 +87,6 @@ $all_cart=$con->query($sql_cart);
                                     </td>
                                 </tr>
                                 <?php
-                            }
-                        }
                     ?>
                 </tbody>
             </table>

@@ -4,6 +4,7 @@ require_once 'connection.php';
 $sql_cart="SELECT * from cart";
 $all_cart=$con->query($sql_cart);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
