@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['Click'])){
   $email2 = $_POST['email2'];
   $feedback = $_POST['feedback'];
@@ -11,7 +12,8 @@ if(isset($_POST['Click'])){
   $con = mysqli_connect($host,$username,$password,$dbname);
   $sql = "INSERT INTO feedback_form(email2,feedback) VALUES('$email2','$feedback')";
   $result = mysqli_query($con,$sql);
-  if($result){
+  if($result)
+  {
     header("Location:feedback.php");
   }
 }
@@ -27,6 +29,7 @@ if(isset($_POST['Click'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <!--FontAwesome CDN-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 <div class="mynavbar">
