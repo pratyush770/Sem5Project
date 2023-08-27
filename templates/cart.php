@@ -37,7 +37,7 @@ $all_cart=$con->query($sql_cart);
         <a href="../templates/home.php" class="alink1"><img class="logo" src="../static/images/22baf73169f8401fb664a518b53c35aa-Lets Clean - Logo-01.png"></a>
             <input type="text" placeholder="Search by product name" id="find" onkeyup="search()" class="inp_text1">
         <ul>
-          <a href="../templates/cart.html"><li class="myli"><i class="fa-solid fa-cart-plus icon" style="position: relative;top:5px;font-size: 23px;" ></i>  
+          <a href="../templates/cart.php"><li class="myli"><i class="fa-solid fa-cart-plus icon" style="position: relative;top:5px;font-size: 23px;" ></i>  
           <span class="span1" id="badge" style="  position: relative; width:10px;height:50px;top:-26px;right:27%;background: green;color: white; border-radius: 50%;padding:2px 6px;font-size: 14px;"><?php echo mysqli_num_rows($all_cart);?></span>
           <span class="span2" style="position: relative;font-size: 20px;right:22px;top:2px;">Cart</li></a> 
           <div class="toggle"></div>

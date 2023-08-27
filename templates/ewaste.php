@@ -131,13 +131,15 @@ $all_product=$con->query($sql);
         let filter = document.getElementById('find').value.toUpperCase();
         let item = document.querySelectorAll('.card');
         let l = document.getElementsByTagName('h5');
+        var result =document.getElementById('result');
         for(var i = 0;i<=l.length;i++){
           let a=item[i].getElementsByTagName('h5')[0];
           let value=a.innerHTML || a.innerText || a.textContent;
           if(value.toUpperCase().indexOf(filter)>-1){
             item[i].style.display="";
           }
-          else{
+          else
+          {
             item[i].style.display="none";
           }
         }
