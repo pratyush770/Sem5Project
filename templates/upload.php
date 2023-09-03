@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 </head>
 <body style="overflow-y:hidden;">
-<nav class="navbar navbar-expand-lg bg-success border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     <input type="file" name="imgupload" id="imgupload" ><br> <br>
     <!-- <button onclick="upload()">Select Image</button> <br> <br> -->
     <!-- <input type="submit" value="Upload" name="submit"> -->
-    <input type="submit" name="submit" class="btn btn-danger" value="Upload" style="width:100px;font-size:17px;margin-left:90px; margin-top:-10px;border-radius:5px;">
+    <input type="submit" name="submit" class="btn btn-success" value="Upload" style="width:100px;font-size:17px;margin-left:90px; margin-top:-10px;border-radius:5px;">
 </form>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
