@@ -60,7 +60,16 @@
   font-size: 15px;
   text-transform: none;
 }
-
+.container form .row .col .inputBox select{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+.container form .row .col .inputBox select:focus{
+  border:1px solid #000;
+}
 .container form .row .col .inputBox input:focus{
   border:1px solid #000;
 }

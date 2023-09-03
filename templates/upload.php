@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 </head>
 <body style="overflow-y:hidden;">
-<nav class="navbar navbar-expand-lg bg-secondary border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -34,16 +34,24 @@ if(isset($_POST['submit'])){
     </div>
   </div>
 </nav>
-<section style="margin-top:-50px;">
+<section style="margin-top:-70px;">
 <form action="" method="POST">
     <h1 style="color:#fff;font-size: 36px; margin-left:35px;">Add a product</h1>
-    <hr>
+    <hr color="black" size="4">
     <input type="text" name="pname" id="pname" placeholder="Enter product name"> <br> <br>
-    <input type="text" name="pcategory" id="pcategory" placeholder="Enter product category"> <br> <br>
+    <label for="pcategory"> Select Category </label>
+    <select name="pcategory" id="pcategory">
+      <option value="E-Waste">E-Waste</option>
+      <option value="Plastic">Plastic</option>
+      <option value="Paper">Paper</option>
+      <option value="Clothes">Clothes</option>
+    </select><br> <br>
+    <!-- <input type="text" name="pcategory" id="pcategory" placeholder="Enter product category"> <br> <br> -->
     <input type="text" name="pprice" id="pprice" placeholder="Enter product price"> <br> <br>
     <input type="file" name="imgupload" id="imgupload" ><br> <br>
     <!-- <button onclick="upload()">Select Image</button> <br> <br> -->
-    <input type="submit" value="Upload" name="submit">
+    <!-- <input type="submit" value="Upload" name="submit"> -->
+    <input type="submit" name="submit" class="btn btn-success" value="Upload" style="width:100px;font-size:17px;margin-left:90px; margin-top:-10px;border-radius:5px;">
 </form>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

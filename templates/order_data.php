@@ -15,7 +15,7 @@ $all_cart=$con->query($sql_cart);
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-secondary border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
@@ -59,7 +59,6 @@ $all_cart=$con->query($sql_cart);
                                     <td><?php echo $row['addr']; ?></td>
                                     <td><?php echo $row['ccity']; ?></td>
                                     <td><?php echo $row['cstate']; ?></td>
-                                    <td><?php echo $row['zcode']; ?></td>
                                     <td>
                                     <table class="table table-bordered table-hover" style="border:2px solid lightgray;">
                 <thead style="border:2px solid lightgray;text-align:center;font-size:18px;">

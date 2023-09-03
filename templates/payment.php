@@ -6,7 +6,6 @@ if(isset($_POST['Click_me']))
     $addr = $_POST['addr'];
     $ccity = $_POST['ccity'];
     $cstate = $_POST['cstate'];
-    $zcode = $_POST['zcode'];
 
     $host = 'localhost';
     $username ='root';
@@ -15,7 +14,7 @@ if(isset($_POST['Click_me']))
 
     $conn = mysqli_connect($host,$username,$password,$dbname);
 
-    $query = "INSERT INTO payment_details(fname,email2,addr,ccity,cstate,zcode) values ('$fname','$email2','$addr','$ccity','$cstate','$zcode')";
+    $query = "INSERT INTO payment_details(fname,email2,addr,ccity,cstate) values ('$fname','$email2','$addr','$ccity','$cstate')";
     $value=mysqli_query($conn,$query);
     if($value){
         header("Location:home.php");
@@ -66,12 +65,26 @@ if(isset($_POST['Click_me']))
                 <div class="flex">
                     <div class="inputBox">
                         <span>state :</span>
-                        <input type="text" placeholder="Maharashtra" name="cstate" required>
+                        <select name="cstate" required>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Gujarat>Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
                     </div>
-                    <div class="inputBox">
+                    <!-- <div class="inputBox">
                         <span>zip code :</span>
                         <input type="text" placeholder="123 456" name="zcode" required>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -94,7 +107,21 @@ if(isset($_POST['Click_me']))
                 </div>
                 <div class="inputBox">
                     <span>exp month :</span>
-                    <input type="text" placeholder="January" name="emonth" required>
+                    <select required>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        
+                    </select>
                 </div>
 
                 <div class="flex">
@@ -104,7 +131,7 @@ if(isset($_POST['Click_me']))
                     </div>
                     <div class="inputBox">
                         <span>CVV :</span>
-                        <input type="text" placeholder="1234" name="cvv" required>
+                        <input type="password" placeholder="1234" name="cvv" required>
                     </div>
                 </div>
 
