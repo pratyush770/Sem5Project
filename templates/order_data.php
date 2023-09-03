@@ -41,7 +41,6 @@ $all_cart=$con->query($sql_cart);
                         <th>Address</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Zip Code</th>
                         <th>Orders</th>
                     </tr>
                 </thead>
