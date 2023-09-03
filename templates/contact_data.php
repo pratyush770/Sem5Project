@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-success border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">

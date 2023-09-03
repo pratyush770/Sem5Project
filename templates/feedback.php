@@ -97,7 +97,7 @@ if(isset($_POST['Click'])){
         </form>
        </div>
        
- <script src="../static/feedback.js"></script>
+ <!-- <script src="../static/feedback.js"></script> -->
 
 
    </div></center>

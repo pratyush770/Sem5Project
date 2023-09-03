@@ -114,8 +114,8 @@ $all_cart=$con->query($sql_cart);
      }
  }
       ?>
-    <h3 style="float:right;margin-right:330px;position:relative;top:10px;">Grand Total : </h3>
-    <h3 style ="float:right;margin-right:-230px;position:relative;top:10px;" id = "gtotal"></h3>
+    <h3 style="float:right;margin-right:330px;position:relative;top:10px;">Grand Total : </h3> 
+    <h3 style ="float:right;margin-right:-230px;position:relative;top:10px;" id = "gtotal"></h3> 
     <form action="cart.php" method="POST">
     <button class="btn btn-danger" style="position:relative;float:right;top:60px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
