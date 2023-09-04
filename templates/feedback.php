@@ -1,6 +1,5 @@
 <?php
-session_start();
-if(isset($_POST['Click'])){
+if($_SERVER["REQUEST_METHOD"] === "POST"){
   $email2 = $_POST['email2'];
   $feedback = $_POST['feedback'];
 
@@ -9,13 +8,30 @@ if(isset($_POST['Click'])){
   $password = '';
   $dbname = 'contact_detail';
 
-  $con = mysqli_connect($host,$username,$password,$dbname);
-  $sql = "INSERT INTO feedback_form(email2,feedback) VALUES('$email2','$feedback')";
-  $result = mysqli_query($con,$sql);
-  if($result)
+  // Create a database connection
+  $conn = new mysqli($host, $username, $password, $dbname);
+
+  // Check the connection
+  if ($conn->connect_error) 
   {
-    header("Location:feedback.php");
+      die("Connection failed: " . $conn->connect_error);
   }
+
+  $sql = "INSERT INTO feedback_form(email2,feedback) VALUES('$email2','$feedback')";
+  if ($conn->query($sql) === TRUE) 
+  {
+    $response = "Data inserted successfully!";
+  } 
+  else 
+  {
+    $response = "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+// Close the database connection
+$conn->close();
+
+// Send the response back to the JavaScript
+echo json_encode($response);
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +45,7 @@ if(isset($_POST['Click'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <!--FontAwesome CDN-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div class="mynavbar">
@@ -66,7 +82,7 @@ if(isset($_POST['Click'])){
   </header>
   </div>
     <div>
-      <form action="" method="POST">
+      <form action="feedback.php" method="POST" id="myForm">
       <center> <div class="feedback-container">
          <h1>Customer Feedback</h1>
          <p style="font-size: larger;">Please let us know your thoughts about our service.</p>
@@ -85,7 +101,7 @@ if(isset($_POST['Click'])){
           <input type="email" name="email2" id="" placeholder="Enter your email" autocomplete="off" required>
            <textarea placeholder="Your feedback..." name="feedback" required></textarea>
          </div>
-         <button id="submit-btn" name="Click">Submit Feedback</button>
+         <button type="submit" id="submit-btn" name="Click">Submit Feedback</button>
        </div>
        <!-- <div class="popup-container" id="popup">
          <div class="popup-content">
@@ -234,6 +250,47 @@ if(isset($_POST['Click'])){
     
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
     </script>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const myForm = document.getElementById("myForm");
+
+            myForm.addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent the form from actually submitting
+
+                // Serialize form data
+                const formData = new FormData(myForm);
+
+                // Submit form data to the server
+                fetch("http://localhost/Sem5Project/templates/feedback.php", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Show SweetAlert based on the response from the server
+                        Swal.fire({
+                            icon: "success",
+                            title: "Form submitted successfully!",
+                            text: data,
+                        });
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Form submitted successfully!",
+                            text: "Thanks for your feedback",
+                        }).then(() => {
+                        // Clear the form after successful submission
+                        myForm.reset();
+                        // window.location.href = "http://localhost/Sem5Project/templates/home.php";
+                    });
+                        console.error("Error:", error);
+                    })
+            });
+        });
+    </script>
+  
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

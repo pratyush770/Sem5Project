@@ -214,6 +214,9 @@ $all_cart=$con->query($sql_cart);
                     if(this.readyState==4 && this.status==200){
                         target.innerHTML= this.responseText;
                         target.style.opacity = .5;
+                        setTimeout(function() {
+                        window.location.reload();
+                        }, 300);
                     }
                 }
                 xml.open("GET","connection.php?cart_id=" + cart_id,true);

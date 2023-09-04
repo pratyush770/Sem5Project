@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['Submit'])){
+if($_SERVER["REQUEST_METHOD"] === "POST"){
   $myname1 = $_POST['myname1'];
   $email1 = $_POST['email1'];
   $phone1 = $_POST['phone1'];
@@ -10,12 +10,28 @@ if(isset($_POST['Submit'])){
   $password = '';
   $dbname = 'contact_detail';
 
-  $con = mysqli_connect($host,$username,$password,$dbname);
-  $sql = "INSERT INTO contact_form(myname1,email1,phone1,msg1) VALUES('$myname1','$email1','$phone1','$msg1')";
-  $result = mysqli_query($con,$sql);
-  if($result){
-    header("Location:contact.php");
+  $conn = new mysqli($host, $username, $password, $dbname);
+
+  // Check the connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
   }
+
+  $sql = "INSERT INTO contact_form(myname1,email1,phone1,msg1) VALUES('$myname1','$email1','$phone1','$msg1')";
+  if ($conn->query($sql) === TRUE) 
+  {
+    $response = "Data inserted successfully!";
+  } 
+  else 
+  {
+    $response = "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+// Close the database connection
+$conn->close();
+
+// Send the response back to the JavaScript
+echo json_encode($response);
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +45,7 @@ if(isset($_POST['Submit'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <!--FontAwesome CDN-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div class="mynavbar">
@@ -77,7 +93,7 @@ if(isset($_POST['Submit'])){
                       <div class="contact_field">
                         <h3 style="font-style: italic;">Contact Us</h3>
                         <p style="font-size:large;font-style: italic;">Feel Free to contact us any time. We will get back to you soon!</p>
-                        <form method="POST" action="">
+                        <form method="POST" action="contact.php" id="myForm">
                           <input type="text" class="form-control form-group" name="myname1" placeholder="Name" required>
                           <input type="text" class="form-control form-group" name="email1" placeholder="Email" required>
                           <input type="tel" class="form-control form-group" name="phone1" placeholder="Phone Number" required>
@@ -184,6 +200,45 @@ if(isset($_POST['Submit'])){
     
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const myForm = document.getElementById("myForm");
+
+            myForm.addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent the form from actually submitting
+
+                // Serialize form data
+                const formData = new FormData(myForm);
+
+                // Submit form data to the server
+                fetch("http://localhost/Sem5Project/templates/contact.php", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Show SweetAlert based on the response from the server
+                        Swal.fire({
+                            icon: "success",
+                            title: "Form submitted successfully!",
+                            text: data,
+                        });
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Form submitted successfully!",
+                            text: "Thank you for contacting us",
+                        }).then(() => {
+                        // Clear the form after successful submission
+                        myForm.reset();
+                    });
+                        console.error("Error:", error);
+                    })
+            });
+        });
+    </script>
+  
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['Click_me']))
+if($_SERVER["REQUEST_METHOD"] === "POST")
     {  
     $fname = $_POST['fname'];   
     $email2 = $_POST['email2'];
@@ -12,16 +12,31 @@ if(isset($_POST['Click_me']))
     $password = '';
     $dbname = 'product_details';
 
-    $conn = mysqli_connect($host,$username,$password,$dbname);
+    // Create a database connection
+    $conn = new mysqli($host, $username, $password, $dbname);
 
-    $query = "INSERT INTO payment_details(fname,email2,addr,ccity,cstate) values ('$fname','$email2','$addr','$ccity','$cstate')";
-    $value=mysqli_query($conn,$query);
-    if($value){
-        header("Location:home.php");
+     // Check the connection
+    if ($conn->connect_error) 
+    {
+        die("Connection failed: " . $conn->connect_error);
     }
-    mysqli_close($conn);
-    
-}
+
+    $sql = "INSERT INTO payment_details(fname,email2,addr,ccity,cstate) values ('$fname','$email2','$addr','$ccity','$cstate')";
+    if ($conn->query($sql) === TRUE) 
+    {
+      $response = "Data inserted successfully!";
+    } 
+    else 
+    {
+      $response = "Error: " . $sql . "<br>" . $conn->error;
+    }
+  
+    // Close the database connection
+    $conn->close();
+  
+    // Send the response back to the JavaScript
+    echo json_encode($response);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +46,14 @@ if(isset($_POST['Click_me']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../static/payment.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
 
 <div class="container">
 
-    <form action="" method="POST">
+    <form action="" method="POST" id="myForm">
 
         <div class="row">
 
@@ -141,5 +157,44 @@ if(isset($_POST['Click_me']))
 
         <input type="submit" value="Place Order" class="submit-btn" name="Click_me">
     </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const myForm = document.getElementById("myForm");
+
+            myForm.addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent the form from actually submitting
+
+                // Serialize form data
+                const formData = new FormData(myForm);
+
+                // Submit form data to the server
+                fetch("http://localhost/Sem5Project/templates/payment.php", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Show SweetAlert based on the response from the server
+                        Swal.fire({
+                            icon: "success",
+                            title: "Form submitted successfully!",
+                            text: data,
+                        });
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Order placed successfully!",
+                            text:"Do visit us again",
+                        }).then(() => {
+                        // Clear the form after successful submission
+                        myForm.reset();
+                        window.location.href = "http://localhost/Sem5Project/templates/home.php";
+                    });
+                        console.error("Error:", error);
+                    })
+            });
+        });
+    </script>
 </body>
 </html>
