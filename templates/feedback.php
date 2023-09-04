@@ -53,7 +53,7 @@ echo json_encode($response);
         <a href="../templates/home.php" class="alink1"><img class="logo" src="../static/images/22baf73169f8401fb664a518b53c35aa-Lets Clean - Logo-01.png"></a>
         <input type="text" placeholder="Search by product name" id="find" onkeyup="search()" class="inp_text1">
         <ul>
-        <a href="../templates/cart.php"><li class="myli"><i class="fa-solid fa-cart-plus icon" style="position: relative;top:5px;font-size: 23px;color:green;" ></i>  
+        <a href="../templates/cart.php"><li class="myli"><i class="fa-solid fa-cart-plus icon1" style="position: relative;top:5px;font-size: 23px;color:green" ></i>  
           <span class="span1" id="badge" style="  position: relative; width:10px;height:50px;top:-26px;right:27%;background: green;color: white; border-radius: 50%;padding:2px 6px;font-size: 14px;">0</span>
           <span class="span2" style="position: relative;font-size: 20px;right:22px;top:2px;">Cart</li></a> 
           <div class="toggle"></div>
@@ -87,7 +87,7 @@ echo json_encode($response);
          <h1>Customer Feedback</h1>
          <p style="font-size: larger;">Please let us know your thoughts about our service.</p>
          <div class="rating-container">
-           <span class="rating-text">Rate us:</span>
+           <span class="rating-text">Rate us : </span>
            <div class="rating-icons">
              <span class="icon">&#9733;</span>
              <span class="icon">&#9733;</span>
@@ -95,7 +95,7 @@ echo json_encode($response);
              <span class="icon">&#9733;</span>
              <span class="icon">&#9733;</span>
            </div>
-           <input type="range" min="1" max="5" step="1" value="5" id="rating-input">
+           <input type="range" min="0" max="5" step="1" value="5" id="rating-input">
          </div>
          <div class="feedback-text">
           <input type="email" name="email2" id="" placeholder="Enter your email" autocomplete="off" required>
@@ -113,7 +113,7 @@ echo json_encode($response);
         </form>
        </div>
        
- <!-- <script src="../static/feedback.js"></script> -->
+ <script src="../static/feedback.js"></script>
 
 
    </div></center>
