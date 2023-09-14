@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                         }).then(() => {
                         // Clear the form after successful submission
                         myForm.reset();
-                        // window.location.href = "http://localhost/Sem5Project/templates/home.php";
+                        window.location.href = "http://localhost/Sem5Project/templates/subscription.php";
                     });
                         console.error("Error:", error);
                     })
