@@ -69,12 +69,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <div class="input-container">
             <label for="state">State</label>
             <select name="sstate" id="state" required>
-                <option selected value="Maharashtra">Maharashtra</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="West Bengal">West Bengal</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Gujarat>Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
             </select>
         </div>
         <div class="input-container">
