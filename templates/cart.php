@@ -116,13 +116,13 @@ $all_cart=$con->query($sql_cart);
       ?>
       <br> 
     <h4 style="float:right;margin-right:330px;position:relative;top:-30px;">Sub Total : </h4> 
-    <h4 style ="float:right;margin-right:-177px;position:relative;top:-30px;" id = "stotal"></h4>
-    <h5 style ="float:right;margin-right:-163px;position:relative;top:10px;">CGST : &nbsp;&nbsp;250 </h5>  
-    <h5 style ="float:right;margin-right:-163px;position:relative;top:40px;">SGST : &nbsp;&nbsp;250 </h5> 
-    <hr style="position:relative;width:250px;top:60px;left:1040px;" color="black" size=4> 
-    <h4 style="float:right;margin-right:-114px;position:relative;top:55px;">Grand Total : </h4> 
-    <h4 style ="float:right;margin-right:-207px;position:relative;top:55px;" id = "gtotal"></h4>
-    <!-- <h4 style ="float:right;margin-right:-200px;position:relative;top:10px;" id = "sgst">Hello</h4>   -->
+    <h4 style ="float:right;margin-right:-199px;position:relative;top:-30px;" id = "stotal"></h4>
+    <h5 style ="float:right;margin-right:-180px;position:relative;top:10px;">CGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5>  
+    <h5 style ="float:right;margin-right:-180px;position:relative;top:40px;">SGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5> 
+    <hr style="position:relative;width:245px;top:60px;left:1040px;" color="black" size=4> 
+    <h4 style="float:right;margin-right:-111px;position:relative;top:55px;">Grand Total : </h4> 
+    <h4 style ="float:right;margin-right:-225px;position:relative;top:55px;" id = "gtotal"></h4>
+    <hr style="position:relative;width:245px;top:95px;left:1040px;" color="black" size=4> 
     <form action="cart.php" method="POST">
     <button class="btn btn-danger" style="position:relative;float:right;top:100px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
@@ -212,8 +212,8 @@ $all_cart=$con->query($sql_cart);
           st = st + (iprice[i].value)*(iquantity[i].value);
           gt = st +cgst + sgst;
         }
-        stotal.innerText = st;
-        gtotal.innerText = gt;
+        stotal.innerText = " ₹ " + st;
+        gtotal.innerText = " ₹ " + gt;
       }
       subTotal();
     </script>

@@ -133,10 +133,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             });
         });
 
-    let sprice = localStorage.getItem("sprice");
-
-    document.getElementById("displayPrice").textContent = sprice;
-
     </script>
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
