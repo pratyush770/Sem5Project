@@ -63,8 +63,11 @@ $all_sub=$con->query($sql);
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Paper Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Cloth Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;E-waste Collection</p>
-        <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p>
-        <a href="subscription_form.php" style="text-decoration:none;"><button>Schedule Pickup</button></a>
+        <!-- <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p> -->
+        <form id="getPrice" action="test.html">
+  <input type="text" id="newPrice" name="sprice" style="outline:none; border:none">
+  <button type="submit">Schedule Pickup</button>
+        </form>
       </div>
       <?php
   }
@@ -133,6 +136,24 @@ $all_sub=$con->query($sql);
       })
     
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
+
+      var newprice = document.getElementById("newprice");
+      newprice.textContent = `        
+      <form id="subform" action="#">
+            <input type="number" readonly ${<?php echo $row['sprice'];?>}>
+      </form> `;
+
+      function storePrice() {
+  let sprice = document.getElementById("newPrice").value;
+  localStorage.setItem("sprice", sprice);
+
+  // Redirect to the "test.html" page
+  // window.location.href = "test.html"; // Change the URL as needed
+}
+
+
+
+
     </script>
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

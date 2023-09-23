@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Assam">Assam</option>
             <option value="Bihar">Bihar</option>
-            <option value="Gujarat>Gujarat</option>
+            <option value="Gujarat">Gujarat</option>
             <option value="Haryana">Haryana</option>
             <option value="Kerala">Kerala</option>
             <option value="Manipur">Manipur</option>
@@ -92,29 +92,30 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             Submit
         </button>
     </form>
+    <!-- <h1 id="displayPrice"></h1> -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const myForm = document.getElementById("myForm");
-
+            
             myForm.addEventListener("submit", function (e) {
                 e.preventDefault(); // Prevent the form from actually submitting
-
+                
                 // Serialize form data
                 const formData = new FormData(myForm);
-
+                
                 // Submit form data to the server
                 fetch("http://localhost/Sem5Project/templates/subscription_form.php", {
                     method: "POST",
                     body: formData,
                 })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        // Show SweetAlert based on the response from the server
-                        Swal.fire({
-                            icon: "success",
-                            title: "Form submitted successfully!",
-                            text: data,
+                .then((response) => response.json())
+                .then((data) => {
+                    // Show SweetAlert based on the response from the server
+                    Swal.fire({
+                        icon: "success",
+                        title: "Form submitted successfully!",
+                        text: data,
                         });
                     })
                     .catch((error) => {
@@ -131,6 +132,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                     })
             });
         });
+
+    let sprice = localStorage.getItem("sprice");
+
+    document.getElementById("displayPrice").textContent = sprice;
+
     </script>
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

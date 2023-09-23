@@ -73,13 +73,13 @@ $all_product=$con->query($sql);
   ?>
   <div class="card">
   <div class="image">
-          <img src="../static/images/<?php echo $row['imgupload'];?>">
+         <img src="../static/images/<?php echo $row['imgupload'];?>">
       </div>
       <div class="caption">
           <p class="product_cat" style="font-size: 16px;color: rgba(0, 0, 0, 0.750);"><?php echo $row['pcategory'];?></p>
           <h5 class="product_name" style="font-weight:bold;font-size: 21px;margin-top:-2px;"><?php echo $row['pname'];?> (&#8377;<?php echo $row['pprice'];?>)</h5>
       </div>
-      <button class="add"  id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button>
+      <button class="add" id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button>
   </div>
   <?php
   }

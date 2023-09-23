@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
     <title>Upload Products</title>
     <link rel="stylesheet" href="../static/upload.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body style="overflow-y:hidden;">
 <nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
@@ -29,7 +30,7 @@ if(isset($_POST['submit'])){
         <a class="nav-link" href="subscription_data.php">&nbsp;&nbsp;&nbsp;Subscription</a>
         <a class="nav-link" href="contact_data.php">&nbsp;&nbsp;&nbsp;Contact</a>  
         <a class="nav-link" href="feedback_data.php">&nbsp;&nbsp;&nbsp;Feedback</a>
-        <a class="nav-link" href="home.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Go to site</a>
+        <a class="nav-link" href="admin.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
     </div>
   </div>

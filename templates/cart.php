@@ -66,7 +66,7 @@ $all_cart=$con->query($sql_cart);
   </header>
     </div><br><br><br><br><br><br><br><br>
     <h1 style="margin-top:10px;margin-bottom: 20px;font-family:sans-serif;font-size: 34px;text-align: center;">Your Cart</h1>
-    <p class="para" style="text-align: center;font-family: arial;font-size:24px;font-family:sans-serif;">
+    <p class="para" style="text-align: center;font-family: arial;font-size:23px;font-family:sans-serif;">
               Added items will be displayed here
 </p>
             <hr style="width:72%;margin-left:215px; margin-bottom:50px;">
@@ -114,15 +114,22 @@ $all_cart=$con->query($sql_cart);
      }
  }
       ?>
-    <h3 style="float:right;margin-right:330px;position:relative;top:10px;">Grand Total : </h3> 
-    <h3 style ="float:right;margin-right:-230px;position:relative;top:10px;" id = "gtotal"></h3> 
+      <br> 
+    <h4 style="float:right;margin-right:330px;position:relative;top:-30px;">Sub Total : </h4> 
+    <h4 style ="float:right;margin-right:-177px;position:relative;top:-30px;" id = "stotal"></h4>
+    <h5 style ="float:right;margin-right:-163px;position:relative;top:10px;">CGST : &nbsp;&nbsp;250 </h5>  
+    <h5 style ="float:right;margin-right:-163px;position:relative;top:40px;">SGST : &nbsp;&nbsp;250 </h5> 
+    <hr style="position:relative;width:250px;top:60px;left:1040px;" color="black" size=4> 
+    <h4 style="float:right;margin-right:-114px;position:relative;top:55px;">Grand Total : </h4> 
+    <h4 style ="float:right;margin-right:-207px;position:relative;top:55px;" id = "gtotal"></h4>
+    <!-- <h4 style ="float:right;margin-right:-200px;position:relative;top:10px;" id = "sgst">Hello</h4>   -->
     <form action="cart.php" method="POST">
-    <button class="btn btn-danger" style="position:relative;float:right;top:60px;right:-90px;"name="Clear_Items">Clear Cart</button>
+    <button class="btn btn-danger" style="position:relative;float:right;top:100px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
     <form action="login.php" method="POST">
-    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:60px;right:-330px;">
+    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:100px;right:-330px;">
     </form>
-        <footer style="margin-top:170.5px;"> 
+        <footer style="margin-top:180.5px;"> 
             <div class="container">
               <div class="footer-content">
                <div class="footer-column1">
@@ -180,25 +187,32 @@ $all_cart=$con->query($sql_cart);
               return localStorage.setItem('mode','light');
           }
           localStorage.setItem('mode','dark')
-    
       })
-    
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
     </script>
     <script>
+      var st = 0;
+      var cgst=250;
+      var sgst=250;
       var gt = 0;
       var iprice = document.getElementsByClassName('iprice');
       var iquantity = document.getElementsByClassName('iquantity');
       var itotal = document.getElementsByClassName('itotal');
+      var stotal =document.getElementById('stotal');
       var gtotal =document.getElementById('gtotal');
       function subTotal()
       {
-        gt =0;
+        st =0;
+        cgst=250;
+        sgst=250;
+        gt= 0;
         for(i=0;i<iprice.length;i++)
         {
           itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-          gt = gt + (iprice[i].value)*(iquantity[i].value);
+          st = st + (iprice[i].value)*(iquantity[i].value);
+          gt = st +cgst + sgst;
         }
+        stotal.innerText = st;
         gtotal.innerText = gt;
       }
       subTotal();

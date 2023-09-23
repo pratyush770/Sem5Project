@@ -1,18 +1,13 @@
 <?php
-session_start();
-if(isset($_POST['submit']))
-    {  
-  
-    $host = 'localhost';
-    $username ='root';
-    $password = '';
-    $dbname = 'product_details';
+$host = 'localhost';
+$username ='root';
+$password = '';
+$dbname = 'product_details';
 
-    $con = mysqli_connect($host,$username,$password,$dbname);
-    $sql = "INSERT cart SELECT * FROM product WHERE pname='Light Lamp'";
-    $query=mysqli_query($con,$sql);
-    mysqli_close($con);
-}
+$con = mysqli_connect($host,$username,$password,$dbname);
+
+$sql_cart="SELECT * from product_details";
+$all_cart=$con->query($sql_cart);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,14 +56,20 @@ if(isset($_POST['submit']))
       </ul>
   </header>
     </div>
+    <?php
+      while($row_cart = mysqli_fetch_assoc($all_cart)){ 
+         $sql = "SELECT * FROM product WHERE pid=".$row_cart['pid'];
+          $all_product=$con->query($sql);
+          while($row = mysqli_fetch_assoc($all_product)){
+      ?>
     <div class="section">
     <div class="column">
       <form action="../product/elightlamp.php" method="POST">
-        <img src="../static/images/lightlamp.jpg" alt="Avatar" class="homeImg">
+        <img src="../static/images/<?php echo $row['imgupload'];?>" alt="Avatar" class="homeImg">
         </div>
         <div class="column">
-            <h3 class="h3one">Light Lamp</h3>
-            <p class="p1">E-waste</p>
+            <h3 class="h3one"><?php echo $row['pname'];?></h3>
+            <p class="p1"><?php echo $row['pcategory'];?></p>
             <span class="heading">4.0</span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -76,7 +77,11 @@ if(isset($_POST['submit']))
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star notchecked"></span>
             <hr style="margin-left:200px;width:300px;margin-bottom:-40px;">
-            <h4 name="price">&#8377;456<span class="myspan"> (-18%)</span></h4>
+            <h4 name="price">&#8377;<?php echo $row['pprice'];?><span class="myspan"> (-18%)</span></h4>
+            <?php
+     }
+ }
+      ?>
             <h5>About this item</h5>
             <ul>
                 <li>Brand - Limo</li>

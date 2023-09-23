@@ -13,6 +13,7 @@ $all_cart=$con->query($sql_cart);
     <title>Entries</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-danger border-bottom border-body" data-bs-theme="dark">
@@ -24,7 +25,7 @@ $all_cart=$con->query($sql_cart);
         <a class="nav-link" href="subscription_data.php">&nbsp;&nbsp;&nbsp;Subscription</a>
         <a class="nav-link" href="contact_data.php">&nbsp;&nbsp;&nbsp;Contact</a>  
         <a class="nav-link" href="feedback_data.php">&nbsp;&nbsp;&nbsp;Feedback</a>
-        <a class="nav-link" href="home.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Go to site</a>
+        <a class="nav-link" href="admin.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
     </div>
   </div>
