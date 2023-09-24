@@ -4,14 +4,16 @@ body{
     background-size: cover;
 }
 section{
-    padding:200px;
-    margin-left:100px;
+    padding:90px;
+    position: relative;
+    top:180px;
+    /* margin-left:10px; */
 }
 h1{
     font-family: sans-serif;
 }
 hr{
-    width:31.7%;
+    width:49.5%;
     position: relative;
     right:15px;
     bottom:5px;

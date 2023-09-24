@@ -50,22 +50,6 @@ $all_product=$con->query($sql);
       </ul>
   </header>
     </div>
- <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog w-25">
-    <div class="modal-content">
-        <div class="modal-header border-0">-->
-        <!--<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-      <!-- </div> 
-      <div class="modal-body">
-        Added to Cart Successfully!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Continue Shopping</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 <main>
 <h2 class="text-center" style="font-family:'Poppins';">E-Waste Products</h2>
   <?php
@@ -73,7 +57,7 @@ $all_product=$con->query($sql);
   ?>
   <div class="card">
   <div class="image">
-         <img src="../static/images/<?php echo $row['imgupload'];?>">
+         <a href="ewaste_info?id=<?php echo $row['pid'];?>"><img src="../static/images/<?php echo $row['imgupload'];?>"></a>
       </div>
       <div class="caption">
           <p class="product_cat" style="font-size: 16px;color: rgba(0, 0, 0, 0.750);"><?php echo $row['pcategory'];?></p>

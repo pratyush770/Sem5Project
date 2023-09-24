@@ -5,7 +5,11 @@ if(isset($_POST['submit'])){
      $pcategory=$_POST['pcategory'];
      $pprice=$_POST['pprice'];
      $imgupload=$_POST['imgupload'];
-     $sql = "INSERT INTO product(pname,pcategory,pprice,imgupload) values ('$pname','$pcategory','$pprice','$imgupload')";
+     $d1=$_POST['d1'];
+     $d2=$_POST['d2'];
+     $d3=$_POST['d3'];
+     $d4=$_POST['d4'];
+     $sql = "INSERT INTO product(pname,pcategory,pprice,imgupload,d1,d2,d3,d4) values ('$pname','$pcategory','$pprice','$imgupload','$d1','$d2','$d3','$d4')";
      $query= mysqli_query($con,$sql);
 
 }
@@ -25,7 +29,7 @@ if(isset($_POST['submit'])){
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="upload.php" style="margin-left:400px;">Upload</a>
+      <a class="nav-link active" aria-current="page" href="upload.php" style="margin-left:400px;">Upload</a>
         <a class="nav-link" href="order_data.php">&nbsp;&nbsp;&nbsp;Order</a>
         <a class="nav-link" href="subscription_data.php">&nbsp;&nbsp;&nbsp;Subscription</a>
         <a class="nav-link" href="contact_data.php">&nbsp;&nbsp;&nbsp;Contact</a>  
@@ -35,12 +39,12 @@ if(isset($_POST['submit'])){
     </div>
   </div>
 </nav>
-<section style="margin-top:-70px;">
+<section style="margin-top:-170px;">
 <form action="" method="POST">
-    <h1 style="color:#fff;font-size: 36px; margin-left:35px;">Add a product</h1>
+    <h1 style="color:#fff;font-size: 36px; margin-left:215px;">Add a product</h1>
     <hr color="black" size="4">
-    <input type="text" name="pname" id="pname" placeholder="Enter product name"> <br> <br>
-    <label for="pcategory"> Select Category </label>
+    <input type="text" name="pname" id="pname" placeholder="Enter product name">
+    <label for="pcategory" style="margin-left:40px;"> Select Category </label>
     <select name="pcategory" id="pcategory">
       <option value="E-Waste">E-Waste</option>
       <option value="Plastic">Plastic</option>
@@ -48,11 +52,16 @@ if(isset($_POST['submit'])){
       <option value="Clothes">Cloth</option>
     </select><br> <br>
     <!-- <input type="text" name="pcategory" id="pcategory" placeholder="Enter product category"> <br> <br> -->
-    <input type="text" name="pprice" id="pprice" placeholder="Enter product price"> <br> <br>
-    <input type="file" name="imgupload" id="imgupload" ><br> <br>
+    <input type="text" name="pprice" id="pprice" placeholder="Enter product price">
+    <input type="file" name="imgupload" id="imgupload" style="margin-left:40px;"><br> <br>
+    <label for="description"> Enter product description </label> <br>
+    <input type="text" name="d1" id="d1" placeholder="Line 1">
+    <input type="text" name="d2" id="d2" placeholder="Line 2" style="margin-left:40px;"> <br> <br>
+    <input type="text" name="d3" id="d3" placeholder="Line 3">
+    <input type="text" name="d4" id="d4" placeholder="Line 4" style="margin-left:40px;"> <br> <br>
     <!-- <button onclick="upload()">Select Image</button> <br> <br> -->
     <!-- <input type="submit" value="Upload" name="submit"> -->
-    <input type="submit" name="submit" class="btn btn-success" value="Upload" style="width:100px;font-size:17px;margin-left:90px; margin-top:-10px;border-radius:5px;">
+    <input type="submit" name="submit" class="btn btn-success" value="Upload" style="width:100px;font-size:17px;margin-left:270px; margin-top:10px;border-radius:5px;">
 </form>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

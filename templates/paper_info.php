@@ -1,20 +1,32 @@
 <?php
-require_once 'connection.php';
+$host = 'localhost';
+$username ='root';
+$password = '';
+$dbname = 'product_details';
 
-$sql="SELECT * from product WHERE pcategory='Clothes' ";
-$all_product=$con->query($sql);
+$con = mysqli_connect($host,$username,$password,$dbname);
+
+$id="";
+if(isset($_GET['id']))
+{
+    $id=$_GET['id'];
+}
+$sql_query="SELECT * from product WHERE pid = $id";
+$myresult=$con->query($sql_query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloth Products</title>
-    <link rel="stylesheet" href="../static/category.css">
+    <title>Plastic Products Information</title>
+    <link rel="stylesheet" href="../static/pstatic.css">
     <!-- Bootstrap Css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <!--FontAwesome CDN-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+     <script src="../static/cart.js"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <div class="mynavbar">
@@ -50,25 +62,53 @@ $all_product=$con->query($sql);
       </ul>
   </header>
     </div>
-<main>
-<h2 class="text-center" style="font-family:'Poppins';">Cloth Products</h2>
-  <?php
-  while($row = mysqli_fetch_assoc($all_product)){ 
-  ?>
-  <div class="card">
-      <div class="image">
-      <a href="cloth_info?id=<?php echo $row['pid'];?>"><img src="../static/images/<?php echo $row['imgupload'];?>"></a>
-      </div>
-      <div class="caption">
-          <p class="product_cat" style="font-size: 16px;color: rgba(0, 0, 0, 0.750);"><?php echo $row['pcategory'];?></p>
-          <h5 class="product_name" style="font-weight:bold;font-size: 21px;margin-top:-2px;"><?php echo $row['pname'];?> (&#8377;<?php echo $row['pprice'];?>)</h5>
-      </div>
-      <button class="add"  id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button>
-  </div>
-  <?php
-  }
-  ?> 
-</main>
+    <?php
+     if($myresult->num_rows >0)
+     {
+        while($row = $myresult->fetch_assoc())
+        {
+      ?>
+    <div class="section">
+    <div class="column">
+        <img src="../static/images/<?php echo $row['imgupload'];?>" alt="Avatar" class="homeImg">
+        </div>
+        <div class="column">
+            <h3 class="h3one"><?php echo $row['pname'];?></h3>
+            <p class="p1"><?php echo $row['pcategory'];?></p>
+            <span class="heading">4.0</span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star notchecked"></span>
+            <hr style="margin-left:200px;width:300px;margin-bottom:-40px;">
+            <h4 name="price">&#8377;<?php echo $row['pprice'];?><span class="myspan"> (-10%)</spa></h4>
+            <h5>About this item</h5>
+            <ul>
+                <li><?php echo $row['d1'];?></li>
+                <li><?php echo $row['d2'];?></li>
+                <li><?php echo $row['d3'];?></li>
+                <li><?php echo $row['d4'];?></li>
+            </ul>
+        </div>
+        <div class="column">
+          <div class="card">
+        <h3 class="h3two">&#8377;<?php echo $row['pprice'];?></h3>
+        <?php
+     }
+ }
+      ?>
+        <p class="p2">In stock</p>
+        <p class="p3">Free delivery available.</p>
+        <p class="p4">Estimated delivery between 5-6 <br>days.</p> 
+        <hr>
+        <p class="p5">Sold by Paper Recyclers Private  <br> Ltd.</p>
+        <!-- <button class="add" id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button>  -->
+        <a href="../templates/login.php"><button class="buyb">Buy Now</button></a> 
+          </div>
+          </div>
+        </div>
+        </div><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <div>
         <footer>
             <div class="container">
@@ -108,25 +148,9 @@ $all_product=$con->query($sql);
              <hr size="2" color="#fff">
               <p style="color: #fff;">&copy; 2023 Let's Clean. All rights reserved.</p>
             </div>
-          </footer>      
+          </footer>
+          
     </div>
-    <script>
-      function search(){
-        let filter = document.getElementById('find').value.toUpperCase();
-        let item = document.querySelectorAll('.card');
-        let l = document.getElementsByTagName('h5');
-        for(var i = 0;i<=l.length;i++){
-          let a=item[i].getElementsByTagName('h5')[0];
-          let value=a.innerHTML || a.innerText || a.textContent;
-          if(value.toUpperCase().indexOf(filter)>-1){
-            item[i].style.display="";
-          }
-          else{
-            item[i].style.display="none";
-          }
-        }
-      }
-    </script>
     <script>
       const body = document.querySelector('body');
       toggle = document.querySelector('.toggle');
@@ -150,26 +174,9 @@ $all_product=$con->query($sql);
     
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
     </script>
-    <script>
-      var product_id=document.getElementsByClassName('add');
-      for(var i=0;i<product_id.length;i++){
-          product_id[i].addEventListener("click",function(event){
-              var target=event.target;
-              var id =target.getAttribute("data-id");
-              var xml = new XMLHttpRequest();
-              xml.onreadystatechange=function(){
-                  if(this.readyState==4 && this.status==200){
-                      var data = JSON.parse(this.responseText);
-                      target.innerHTML= data.in_cart;
-                      document.getElementById('badge').innerHTML = data.num_cart + 1;
-                  }
-              }
-              xml.open("GET","connection.php?id=" + id,true);
-              xml.send();
-          })
-      }
-    </script>
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 </body>
 </html>
