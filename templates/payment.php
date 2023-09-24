@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Assam">Assam</option>
                         <option value="Bihar">Bihar</option>
-                        <option value="Gujarat>Gujarat</option>
+                        <option value="Gujarat">Gujarat</option>
                         <option value="Haryana">Haryana</option>
                         <option value="Kerala">Kerala</option>
                         <option value="Manipur">Manipur</option>

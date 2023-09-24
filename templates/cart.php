@@ -212,8 +212,8 @@ $all_cart=$con->query($sql_cart);
           st = st + (iprice[i].value)*(iquantity[i].value);
           gt = st +cgst + sgst;
         }
-        stotal.innerText = " ₹ " + st;
-        gtotal.innerText = " ₹ " + gt;
+        stotal.innerText = "₹ " + st;
+        gtotal.innerText = "₹ " + gt;
       }
       subTotal();
     </script>
