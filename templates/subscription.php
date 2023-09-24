@@ -64,11 +64,12 @@ $all_sub=$con->query($sql);
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;Cloth Waste Collection</p>
           <p><i class="fa-solid fa-square-check icon"></i>&nbsp;&nbsp;E-waste Collection</p>
         <p><strong>Price: &#8377;<?php echo $row['sprice'];?> </strong></p>
-       <a href="subscription_form.php" style="text-decoration:none;"><button type="submit">Schedule Pickup</button></a>
+       <a href="subscription_form.php?id=<?php echo $row['id'];?>" style="text-decoration:none;"><button type="submit">Schedule Pickup</button></a>
         </form>
       </div>
       <?php
   }
+
   ?>
   </div>
     <div>

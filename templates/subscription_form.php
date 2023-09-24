@@ -37,7 +37,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     echo json_encode($response);
 }
 ?>
-
+<?php
+require_once 'connection1.php';
+$sid="";
+if(isset($_GET['id']))
+{
+    $sid=$_GET['id'];
+}
+$sql_query="SELECT * from subscription WHERE id = $sid";
+$myresult=mysqli_query($con,$sql_query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,15 +68,31 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <div class="input-container">
             <label for="name" >Name</label>
             <input id="name" type="text" placeholder="Enter your name" name="sname" required>
-            <span>
-            </span>
         </div>
         <div class="input-container">
-            <label for="name">Email</label>
+            <label for="name">Email</label>&nbsp;
             <input id="email" type="email" placeholder="Enter your email" name="semail" required>
         </div>
+        <?php
+        if($myresult->num_rows >0)
+     {
+        while($row = $myresult->fetch_assoc())
+        {
+      ?>
         <div class="input-container">
-            <label for="state">State</label>
+            <label for="plan">Plan</label> &nbsp;&nbsp;
+            <input id="plan" type="text" value="<?php echo $row['plan'];?>" style="font-size:16px;" readonly>
+        </div>
+        <div class="input-container">
+            <label for="price">Price</label>&nbsp;&nbsp;
+            <input id="price" type="text" value="<?php echo $row['sprice'];?>" style="font-size:16px;" readonly>
+        </div>
+        <?php
+        }
+  }
+  ?>
+        <div class="input-container">
+            <label for="state">State</label>&nbsp;
             <select name="sstate" id="state" required>
             <option value="Maharashtra">Maharashtra</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -85,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             </select>
         </div>
         <div class="input-container">
-            <label for="time">Time</label>
+            <label for="time">Time</label>&nbsp;
             <input type="time" value="12:00" name="time" required>
         </div> <br>
         <button type="submit" class="submit" name="Click">
