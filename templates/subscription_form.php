@@ -123,7 +123,7 @@ $myresult=mysqli_query($con,$sql_query);
 
             <div class="col">
 
-                <h3 class="title">billing address</h3>
+                <h3 class="title">Customer details</h3>
 
                 <div class="inputBox">
                     <span>full name :</span>

@@ -10,29 +10,7 @@ body{
 body.dark{
     background-color: #1e272e;
 } 
-.dark #cart-summary h1{
-  color:#f1f2f6;
-}
-.dark #cart-summary h2{
-  color:#f1f2f6;
-}
-.dark #cart-summary h3{
-  color:#f1f2f6;
-}
-.dark #cart-summary hr{
-  color:#f1f2f6;
-  border-color: #f1f2f6;
-  outline-color: #f1f2f6;
-}
-.dark #cart-total{
-  color:#f1f2f6;
-}
-.dark #cart-items p{
-  color:#f1f2f6;
-}
-.dark .quantity span{
-  color:#f1f2f6;
-}
+
 .mynavbar{
   top:0;
   position: fixed;
@@ -254,4 +232,7 @@ footer ul li{
 }
 .toggle.active:hover{
   background-color: black;
+}
+#mycard{
+  border:none;
 }

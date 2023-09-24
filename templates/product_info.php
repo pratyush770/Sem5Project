@@ -19,7 +19,7 @@ $myresult=$con->query($sql_query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plastic Products Information</title>
+    <title>Products Information</title>
     <link rel="stylesheet" href="../static/pstatic.css">
     <!-- Bootstrap Css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -94,16 +94,16 @@ $myresult=$con->query($sql_query);
         <div class="column">
           <div class="card">
         <h3 class="h3two">&#8377;<?php echo $row['pprice'];?></h3>
+        <p class="p2">In stock</p>
+        <p class="p3">Free delivery available.</p>
+        <p class="p4">Estimated delivery between 5-6 <br>days.</p> 
+        <hr>
+        <p class="p5">Sold by Product Recyclers Private  <br> Ltd.</p>
+        <button class="add" id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button> 
         <?php
      }
  }
       ?>
-        <p class="p2">In stock</p>
-        <p class="p3">Free delivery available.</p>
-        <p class="p4">Estimated delivery between 2-3 <br>days.</p> 
-        <hr>
-        <p class="p5">Sold by Plastic Makers Private  <br> Ltd.</p>
-        <!-- <button class="add" id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button>  -->
         <a href="../templates/login.php"><button class="buyb">Buy Now</button></a> 
           </div>
           </div>
@@ -173,6 +173,25 @@ $myresult=$con->query($sql_query);
       })
     
       toggle.addEventListener('click',() => toggle.classList.toggle('active'));
+    </script>
+    <script>
+      var product_id=document.getElementsByClassName('add');
+      for(var i=0;i<product_id.length;i++){
+          product_id[i].addEventListener("click",function(event){
+              var target=event.target;
+              var id =target.getAttribute("data-id");
+              var xml = new XMLHttpRequest();
+              xml.onreadystatechange=function(){
+                  if(this.readyState==4 && this.status==200){
+                      var data = JSON.parse(this.responseText);
+                      target.innerHTML= data.in_cart;
+                      document.getElementById('badge').innerHTML = data.num_cart + 1;
+                  }
+              }
+              xml.open("GET","connection.php?id=" + id,true);
+              xml.send();
+          })
+      }
     </script>
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

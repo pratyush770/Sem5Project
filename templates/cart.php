@@ -29,6 +29,9 @@ $all_cart=$con->query($sql_cart);
 .dark h3{
   color:#f1f2f6;
 }
+.dark .amount{
+  color:#f1f2f6;
+}
      </style>
 </head>
 <body>
@@ -69,7 +72,7 @@ $all_cart=$con->query($sql_cart);
     <p class="para" style="text-align: center;font-family: arial;font-size:23px;font-family:sans-serif;">
               Added items will be displayed here
 </p>
-            <hr style="width:72%;margin-left:215px; margin-bottom:50px;">
+            <hr style="width:72%;margin-left:215px; margin-bottom:30px;">
              <?php
       while($row_cart = mysqli_fetch_assoc($all_cart)){ 
          $sql = "SELECT * FROM product WHERE pid=".$row_cart['pid'];
@@ -79,7 +82,7 @@ $all_cart=$con->query($sql_cart);
             <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-10">
-          <div class="card" style="border:none">
+          <div class="card" id="mycard">
             <div class="card-body">
               <table class="table table-bordered table-lg">
                 <thead>
@@ -114,22 +117,24 @@ $all_cart=$con->query($sql_cart);
      }
  }
       ?>
-      <br> 
+      <br>
+      <div class="amount"> 
     <h4 style="float:right;margin-right:330px;position:relative;top:-30px;">Sub Total : </h4> 
     <h4 style ="float:right;margin-right:-199px;position:relative;top:-30px;" id = "stotal"></h4>
     <h5 style ="float:right;margin-right:-180px;position:relative;top:10px;">CGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5>  
     <h5 style ="float:right;margin-right:-180px;position:relative;top:40px;">SGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5> 
-    <hr style="position:relative;width:245px;top:60px;left:1040px;" color="black" size=4> 
-    <h4 style="float:right;margin-right:-111px;position:relative;top:55px;">Grand Total : </h4> 
-    <h4 style ="float:right;margin-right:-225px;position:relative;top:55px;" id = "gtotal"></h4>
-    <hr style="position:relative;width:245px;top:95px;left:1040px;" color="black" size=4> 
+    <hr style="position:relative;width:245px;top:70px;left:1040px;" color="black" size=4> 
+    <h4 style="float:right;margin-right:-111px;position:relative;top:60px;">Grand Total : </h4> 
+    <h4 style ="float:right;margin-right:-225px;position:relative;top:60px;" id = "gtotal"></h4>
+    <hr style="position:relative;width:245px;top:95px;left:1040px;" color="black" size=4>
+      </div> 
     <form action="cart.php" method="POST">
-    <button class="btn btn-danger" style="position:relative;float:right;top:100px;right:-90px;"name="Clear_Items">Clear Cart</button>
+    <button class="btn btn-danger" style="position:relative;float:right;top:95px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
     <form action="login.php" method="POST">
-    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:100px;right:-330px;">
+    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:95px;right:-330px;">
     </form>
-        <footer style="margin-top:180.5px;"> 
+        <footer style="margin-top:185px;"> 
             <div class="container">
               <div class="footer-content">
                <div class="footer-column1">

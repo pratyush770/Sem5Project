@@ -57,7 +57,7 @@ $all_product=$con->query($sql);
   ?>
   <div class="card">
       <div class="image">
-      <a href="cloth_info?id=<?php echo $row['pid'];?>"><img src="../static/images/<?php echo $row['imgupload'];?>"></a>
+      <a href="product_info?id=<?php echo $row['pid'];?>"><img src="../static/images/<?php echo $row['imgupload'];?>"></a>
       </div>
       <div class="caption">
           <p class="product_cat" style="font-size: 16px;color: rgba(0, 0, 0, 0.750);"><?php echo $row['pcategory'];?></p>
