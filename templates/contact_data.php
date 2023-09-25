@@ -15,13 +15,13 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" aria-current="page" href="upload.php" style="margin-left:400px;">Upload</a>
+      <a class="nav-link" aria-current="page" href="upload.php" style="margin-left:450px;">Upload</a>
         <a class="nav-link" href="order_data.php">&nbsp;&nbsp;&nbsp;Order</a>
         <a class="nav-link" href="subscription_data.php">&nbsp;&nbsp;&nbsp;Subscription</a>
         <a class="nav-link active" href="contact_data.php">&nbsp;&nbsp;&nbsp;Contact</a>  
         <a class="nav-link" href="feedback_data.php">&nbsp;&nbsp;&nbsp;Feedback</a>
-        <a class="nav-link" href="admin.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-      </div>
+        <a class="nav-link" href="admin.php" style="margin-left:320px;">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        <a class="nav-link" href="home.php" style="margin-left:10px;"><i class="fa-solid fa-house"></i></a>
     </div>
   </div>
 </nav>

@@ -20,12 +20,13 @@ $all_cart=$con->query($sql_cart);
   <div class="container-fluid">
     <div class="collapse navbar-collapse justify-content-center" style="font-size:20px;" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" aria-current="page" href="upload.php" style="margin-left:400px;">Upload</a>
-        <a class="nav-link active" href="payment_data.php">&nbsp;&nbsp;&nbsp;Order</a>
+      <a class="nav-link" aria-current="page" href="upload.php" style="margin-left:450px;">Upload</a>
+        <a class="nav-link active" href="order_data.php">&nbsp;&nbsp;&nbsp;Order</a>
         <a class="nav-link" href="subscription_data.php">&nbsp;&nbsp;&nbsp;Subscription</a>
         <a class="nav-link" href="contact_data.php">&nbsp;&nbsp;&nbsp;Contact</a>  
         <a class="nav-link" href="feedback_data.php">&nbsp;&nbsp;&nbsp;Feedback</a>
-        <a class="nav-link" href="admin.php" style="margin-left:300px;">&nbsp;&nbsp;&nbsp;Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        <a class="nav-link" href="admin.php" style="margin-left:320px;">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        <a class="nav-link" href="home.php" style="margin-left:10px;"><i class="fa-solid fa-house"></i></a>
       </div>
     </div>
   </div>
@@ -95,6 +96,7 @@ $all_cart=$con->query($sql_cart);
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
                 integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
                 crossorigin="anonymous"></script>
+                
 </body>
 
 </html>

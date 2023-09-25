@@ -120,21 +120,24 @@ $all_cart=$con->query($sql_cart);
       <br>
       <div class="amount"> 
     <h4 style="float:right;margin-right:330px;position:relative;top:-30px;">Sub Total : </h4> 
-    <h4 style ="float:right;margin-right:-199px;position:relative;top:-30px;" id = "stotal"></h4>
-    <h5 style ="float:right;margin-right:-180px;position:relative;top:10px;">CGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5>  
-    <h5 style ="float:right;margin-right:-180px;position:relative;top:40px;">SGST : &nbsp;&nbsp;&#8377;&nbsp;250 </h5> 
-    <hr style="position:relative;width:245px;top:70px;left:1040px;" color="black" size=4> 
-    <h4 style="float:right;margin-right:-111px;position:relative;top:60px;">Grand Total : </h4> 
-    <h4 style ="float:right;margin-right:-225px;position:relative;top:60px;" id = "gtotal"></h4>
-    <hr style="position:relative;width:245px;top:95px;left:1040px;" color="black" size=4>
+    <h4 style="float:right;margin-right:-137px;position:relative;top:-30px;">₹</h4> 
+    <h4 style ="float:right;margin-right:-195px;position:relative;top:-30px;" id = "stotal"></h4>
+    <h5 style ="float:right;margin-right:-113px;position:relative;top:10px;">GST (5%) :</h5>
+    <h5 style ="float:right;margin-right:-160px;position:relative;top:10px;">₹</h5>   
+    <h5 style ="float:right;margin-right:-195px;position:relative;top:10px;" id="mygst"></h5> 
+    <hr style="position:relative;width:245px;top:45px;left:1040px;" color="black" size=4> 
+    <h4 style="float:right;margin-right:-113px;position:relative;top:35px;">Grand Total : </h4> 
+    <h4 style="float:right;margin-right:-162px;position:relative;top:35px;">₹</h4> 
+    <h4 style ="float:right;margin-right:-220px;position:relative;top:35px;" id = "gtotal"></h4>
+    <hr style="position:relative;width:245px;top:72px;left:1040px;" color="black" size=4>
       </div> 
     <form action="cart.php" method="POST">
-    <button class="btn btn-danger" style="position:relative;float:right;top:95px;right:-90px;"name="Clear_Items">Clear Cart</button>
+    <button class="btn btn-danger" style="position:relative;float:right;top:70px;right:-90px;"name="Clear_Items">Clear Cart</button>
     </form>
     <form action="login.php" method="POST">
-    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:95px;right:-330px;">
+    <input type="submit" name="Buy" value="Proceed to buy"class="btn btn-primary" style="position:relative;float:right;top:70px;right:-330px;">
     </form>
-        <footer style="margin-top:185px;"> 
+        <footer style="margin-top:158.5px;"> 
             <div class="container">
               <div class="footer-content">
                <div class="footer-column1">
@@ -197,28 +200,31 @@ $all_cart=$con->query($sql_cart);
     </script>
     <script>
       var st = 0;
-      var cgst=250;
-      var sgst=250;
+      var gst_val=0;
+      var gst=0;
       var gt = 0;
       var iprice = document.getElementsByClassName('iprice');
       var iquantity = document.getElementsByClassName('iquantity');
       var itotal = document.getElementsByClassName('itotal');
       var stotal =document.getElementById('stotal');
+      var mygst = document.getElementById('mygst');
       var gtotal =document.getElementById('gtotal');
       function subTotal()
       {
         st =0;
-        cgst=250;
-        sgst=250;
+        gst=0;
+        gst_val=0;
         gt= 0;
         for(i=0;i<iprice.length;i++)
         {
           itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-          st = st + (iprice[i].value)*(iquantity[i].value);
-          gt = st +cgst + sgst;
+          st = parseInt(st + (iprice[i].value)*(iquantity[i].value));
+          gst_val = parseInt((st*5)/100);
+          gst = parseInt(st + (st*5)/100);
         }
-        stotal.innerText = "₹ " + st;
-        gtotal.innerText = "₹ " + gt;
+        stotal.innerText = st;
+        mygst.innerText = gst_val;
+        gtotal.innerText = gst;
       }
       subTotal();
     </script>
