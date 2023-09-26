@@ -25,8 +25,6 @@ $myresult=$con->query($sql_query);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
      <!--FontAwesome CDN-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-     <script src="../static/cart.js"></script>
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <div class="mynavbar">
@@ -41,7 +39,7 @@ $myresult=$con->query($sql_query);
         </ul>
     </nav>
     <header  style="height:62px;">
-      <ul>
+    <ul>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="active"><i class="fa-solid fa-basket-shopping"></i>
               Shop by Category
@@ -96,7 +94,7 @@ $myresult=$con->query($sql_query);
         <h3 class="h3two">&#8377;<?php echo $row['pprice'];?></h3>
         <p class="p2">In stock</p>
         <p class="p3">Free delivery available.</p>
-        <p class="p4">Estimated delivery between 5-6 <br>days.</p> 
+        <p class="p4">Estimated delivery between 2-3 <br>days.</p> 
         <hr>
         <p class="p5">Sold by Product Recyclers Private  <br> Ltd.</p>
         <button class="add" id="cartb" data-id="<?php echo $row['pid'];?>">Add to Cart</button> 

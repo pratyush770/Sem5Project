@@ -221,6 +221,7 @@ $all_cart=$con->query($sql_cart);
           st = parseInt(st + (iprice[i].value)*(iquantity[i].value));
           gst_val = parseInt((st*5)/100);
           gst = parseInt(st + (st*5)/100);
+          hidval = gst;
         }
         stotal.innerText = st;
         mygst.innerText = gst_val;
