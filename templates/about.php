@@ -105,8 +105,6 @@
               <p>Dispose of other recyclable items responsibly. "We responsibly dispose of various recyclable items, contributing to a cleaner and eco-friendly future."</p>
           </div>
         </div>
-        
-    </div>
     <div>
       <footer>
           <div class="container">
@@ -149,6 +147,7 @@
         </footer>
         
   </div>
+</div>
   <script>
     const body = document.querySelector('body');
     toggle = document.querySelector('.toggle');
@@ -169,6 +168,7 @@
     })
     toggle.addEventListener('click',() => toggle.classList.toggle('active'));
   </script>
+
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
