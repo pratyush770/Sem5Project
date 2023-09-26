@@ -68,7 +68,9 @@ $all_cart=$con->query($sql_cart);
       </ul>
   </header>
     </div><br><br><br><br><br><br><br><br>
-    <h1 style="margin-top:10px;margin-bottom: 20px;font-family:sans-serif;font-size: 34px;text-align: center;">Your Cart</h1>
+    
+    </h4><h1 style="margin-top:10px;margin-bottom: 20px;font-family:sans-serif;font-size: 34px;text-align: center;">Your Cart</h1>
+    <!-- <h4 id="gtotal1"> </h4> -->
     <p class="para" style="text-align: center;font-family: arial;font-size:23px;font-family:sans-serif;">
               Added items will be displayed here
 </p>
@@ -78,6 +80,7 @@ $all_cart=$con->query($sql_cart);
          $sql = "SELECT * FROM product WHERE pid=".$row_cart['pid'];
           $all_product=$con->query($sql);
           while($row = mysqli_fetch_assoc($all_product)){
+            $cart_items[] = $row;
       ?>
             <div class="container">
       <div class="row justify-content-center">
@@ -209,6 +212,7 @@ $all_cart=$con->query($sql_cart);
       var stotal =document.getElementById('stotal');
       var mygst = document.getElementById('mygst');
       var gtotal =document.getElementById('gtotal');
+      // var gtotal1 =document.getElementById('gtotal1');
       function subTotal()
       {
         st =0;
@@ -221,11 +225,12 @@ $all_cart=$con->query($sql_cart);
           st = parseInt(st + (iprice[i].value)*(iquantity[i].value));
           gst_val = parseInt((st*5)/100);
           gst = parseInt(st + (st*5)/100);
-          hidval = gst;
+          extgt = gst;
         }
         stotal.innerText = st;
         mygst.innerText = gst_val;
         gtotal.innerText = gst;
+        // gtotal1.innerText =extgt;
       }
       subTotal();
     </script>
