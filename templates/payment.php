@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                 </div>
                 <div class="inputBox">
                     <span>address :</span>
-                    <input type="text" placeholder="Enter your address" name="addr" required>
+                    <textarea name="addr" id="addr" cols="38" rows="2" required></textarea>
                 </div>
                 <div class="inputBox">
                     <span>city :</span>
@@ -185,11 +185,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                         Swal.fire({
                             icon: "success",
                             title: "Order placed successfully!",
-                            text:"Do visit us again",
+                            text:"Click the button below to view invoice",
                         }).then(() => {
                         // Clear the form after successful submission
                         myForm.reset();
-                        window.location.href = "http://localhost/Sem5Project/templates/home.php";
+                        window.location.href = "http://localhost/Sem5Project/templates/receipt.php";
                     });
                         console.error("Error:", error);
                     })

@@ -44,7 +44,7 @@ $all_cart=$con->query($sql_cart);
     </div>
   </div>
 </nav> -->
-    <h1 style="text-align:center;margin-top:50px;font-size:36px;">Invoice</h1> <br>
+    <h1 style="text-align:center;margin-top:30px;font-size:36px;">Invoice</h1> <br>
     <div class="container mt-2">
         <div class="row justify-content-center">
             <table class="table table-bordered" style="border:2px solid lightgray;">
@@ -52,10 +52,8 @@ $all_cart=$con->query($sql_cart);
                     <tr style="border:1px solid lightgray;">
                         <th style="border:1px solid lightgray;">ID</th>
                         <th style="border:1px solid lightgray;">Name</th>
-                        <th style="border:1px solid lightgray;">Email</th>
                         <th style="border:1px solid lightgray;">Address</th>
                         <th style="border:1px solid lightgray;">City</th>
-                        <th style="border:1px solid lightgray;">State</th>
                         <th style="border:1px solid lightgray;">Orders</th>
                     </tr>
                 </thead>
@@ -69,16 +67,16 @@ $all_cart=$con->query($sql_cart);
                                 <tr>
                                     <td><?php echo $row['payment_id']; ?></td>
                                     <td><?php echo $row['fname']; ?></td>
-                                    <td><?php echo $row['email2']; ?></td>
                                     <td><?php echo $row['addr']; ?></td>
                                     <td><?php echo $row['ccity']; ?></td>
-                                    <td><?php echo $row['cstate']; ?></td>
                                     <td>
                                     <table class="table table-bordered" style="border:2px solid lightgray;">
                 <thead style="border:2px solid lightgray;text-align:center;font-size:18px;">
                     <tr>
                         <th style="border:1px solid lightgray;">Product</th>
                         <th style="border:1px solid lightgray;">Price</th>
+                        <th style="border:1px solid lightgray;">Quantity</th>
+                        <th style="border:1px solid lightgray;">Total</th>
                     </tr>
                 </thead> 
                 <tbody>
@@ -90,7 +88,11 @@ $all_cart=$con->query($sql_cart);
                             ?>
                     <tr>
                         <td style="border:1px solid lightgray;"><?php echo $row1['pname'] ;?></td>
-                        <td style="border:1px solid lightgray;"><?php echo $row1['pprice'] ;?></td>
+                        <td style="border:1px solid lightgray;"><?php echo $row1['pprice'];?><input type="hidden" class="iprice" value="<?php echo $row1['pprice'];?>"></td>
+                        <td style="border:1px solid lightgray;"><form action="receipt.php" method="POST">
+                      <input class="iquantity" style="width:10px;outline:none;border:none;" onchange="subTotal()" type="text" name="" value="<?php echo $row1['quantity'];?>"> <br> <br>
+                      </form></td>
+                        <td  style="border:1px solid lightgray;" class="itotal"></td>
                     <?php
                           }
                         }
@@ -103,22 +105,55 @@ $all_cart=$con->query($sql_cart);
                     ?>
                 </tbody>
                 <tr>
-                    <th colspan="6" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">Sub Total</th>
-                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;">1903&nbsp;&nbsp;&nbsp;</th>
+                    <th colspan="4" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">Sub Total</th>
+                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;" id="stotal"></th>
                 </tr>
                 <tr>
-                    <th colspan="6" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">GST (5%)</th>
-                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;">95&nbsp;&nbsp;&nbsp;</th>
+                    <th colspan="4" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">GST (5%)</th>
+                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;" id="mygst"></th>
                 </tr>
                 <tr>
-                    <th colspan="6" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">Grand Total</th>
-                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;">1998&nbsp;&nbsp;&nbsp;</th>
+                    <th colspan="4" style="text-align:right;font-size:18px;padding:8px;border:1px solid lightgray;">Grand Total</th>
+                    <th style="text-align:right;font-size:18px;border:1px solid lightgray;" id="gtotal"></th>
                 </tr>
             </table>
         </div>
     </div>
     </div>
             <input type="button" class="btn btn-danger" id="download" required value="Download PDF" style="float:right;margin-right:110px;">
+    <script>
+      var st = 0;
+      var gst_val=0;
+      var gst=0;
+      var gt = 0;
+      var iprice = document.getElementsByClassName('iprice');
+      var iquantity = document.getElementsByClassName('iquantity');
+      var itotal = document.getElementsByClassName('itotal');
+      var stotal =document.getElementById('stotal');
+      var mygst = document.getElementById('mygst');
+      var gtotal =document.getElementById('gtotal');
+      //var gtotal1 =document.getElementById('gtotal1');
+      function subTotal()
+      {
+        st =0;
+        gst=0;
+        gst_val=0;
+        gt= 0;
+        for(i=0;i<iprice.length;i++)
+        {
+          itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
+          st = parseInt(st + (iprice[i].value)*(iquantity[i].value));
+          gst_val = parseInt((st*5)/100);
+          gst = parseInt(st + (st*5)/100);
+          extgt = gst;
+        }
+        stotal.innerText = st;
+        mygst.innerText = gst_val;
+        gtotal.innerText = gst;
+        // gtotal1.innerText =extgt;
+      }
+    subTotal();
+    </script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
                 integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
                 crossorigin="anonymous"></script>
