@@ -35,7 +35,7 @@ $all_cart=$con->query($sql_cart);
 }
      </style>
 </head>
-<body>
+<body onload="subTotal()">
   <div class="mynavbar">
     <nav>
         <a href="../templates/home.php" class="alink1"><img class="logo" src="../static/images/22baf73169f8401fb664a518b53c35aa-Lets Clean - Logo-01.png"></a>
@@ -105,7 +105,9 @@ $all_cart=$con->query($sql_cart);
                     <td><?php echo $row['pprice'];?><input type="hidden" class="iprice" value="<?php echo $row['pprice'];?>"></td>
                     <td>
                       <form action="cart.php" method="POST">
-                      <input class="text-center iquantity" onchange="subTotal()" type="number" name="" value="<?php echo $row['quantity'];?>" min=1 max=5> <br> <br>
+                      <!-- <input class="text-center iquantity" onchange="subTotal()" type="number" name="quantity" value="<?php //echo $row['quantity'];?>" min=1 max=5> <br> <br> -->
+                      <input class="text-center iquantity" onchange="subTotal(this);updateQuantity(this);" type="number" name="quantity" value="<?php echo $row['pquantity'];?>" min="1" max="5" data-id="<?php echo $row['pid'];?>"><br><br>
+
                       </form>
                     <button class="remove btn btn-secondary" data-id="<?php echo $row['pid'];?>">Remove from Cart</button>
                     <td class="itotal"></td>
@@ -213,8 +215,7 @@ $all_cart=$con->query($sql_cart);
       var stotal =document.getElementById('stotal');
       var mygst = document.getElementById('mygst');
       var gtotal =document.getElementById('gtotal');
-      // var gtotal1 =document.getElementById('gtotal1');
-      function subTotal()
+      function subTotal(inputField)
       {
         st =0;
         gst=0;
@@ -231,9 +232,25 @@ $all_cart=$con->query($sql_cart);
         stotal.innerText = st;
         mygst.innerText = gst_val;
         gtotal.innerText = gst;
-        // gtotal1.innerText =extgt;
       }
-      subTotal();
+      
+      function updateQuantity(inputField) {
+    const productId = inputField.getAttribute('data-id');
+    const newQuantity = inputField.value;
+
+    // Send an AJAX request to update the quantity in the database
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle the response if needed
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.open('POST', 'update_quantity.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send(`product_id=${productId}&quantity=${newQuantity}`);
+}
+
     </script>
     <script>
         var remove=document.getElementsByClassName('remove');
@@ -256,6 +273,7 @@ $all_cart=$con->query($sql_cart);
             })
         }
     </script>
+
     <!-- Bootstrap Js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
