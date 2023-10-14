@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newQuantity = $_POST['quantity'];
 
     // Update the quantity in the database
-    $updateQuery = "UPDATE product SET pquantity = $newQuantity WHERE pid = $productId";
+    $updateQuery = "UPDATE product SET quantity = $newQuantity WHERE pid = $productId";
     if ($con->query($updateQuery) === TRUE) {
         echo "Quantity updated successfully";
     } else {

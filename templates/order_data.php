@@ -79,7 +79,7 @@ $all_cart=$con->query($sql_cart);
                     <tr>
                         <td><?php echo $row1['pname'] ;?></td>
                         <td><?php echo $row1['pprice'] ;?></td>
-                        <td><?php echo $row1['pquantity'] ;?></td>
+                        <td><?php echo $row1['quantity'] ;?></td>
                     <?php
                           }
                         }

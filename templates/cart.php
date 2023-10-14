@@ -81,7 +81,6 @@ $all_cart=$con->query($sql_cart);
          $sql = "SELECT * FROM product WHERE pid=".$row_cart['pid'];
           $all_product=$con->query($sql);
           while($row = mysqli_fetch_assoc($all_product)){
-            $cart_items[] = $row;
       ?>
             <div class="container">
       <div class="row justify-content-center">
@@ -106,7 +105,7 @@ $all_cart=$con->query($sql_cart);
                     <td>
                       <form action="cart.php" method="POST">
                       <!-- <input class="text-center iquantity" onchange="subTotal()" type="number" name="quantity" value="<?php //echo $row['quantity'];?>" min=1 max=5> <br> <br> -->
-                      <input class="text-center iquantity" onchange="subTotal(this);updateQuantity(this);" type="number" name="quantity" value="<?php echo $row['pquantity'];?>" min="1" max="5" data-id="<?php echo $row['pid'];?>"><br><br>
+                      <input class="text-center iquantity" onchange="subTotal(this);updateQuantity(this);" type="number" name="quantity" value="<?php echo $row['quantity'];?>" min="1" max="5" data-id="<?php echo $row['pid'];?>"><br><br>
 
                       </form>
                     <button class="remove btn btn-secondary" data-id="<?php echo $row['pid'];?>">Remove from Cart</button>

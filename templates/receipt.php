@@ -91,7 +91,7 @@ $all_cart=$con->query($sql_cart);
                         <td style="border:1px solid lightgray;"><?php echo $row1['pprice'];?><input type="hidden" class="iprice" value="<?php echo $row1['pprice'];?>"></td>
                         <td style="border:1px solid lightgray;">
                         <form action="receipt.php" method="POST">
-                      <input class="iquantity" style="width:13px;outline:none;border:none;" onchange="subTotal()" type="text" name="" value="<?php echo $row1['pquantity'];?>"> <br> <br>
+                      <input class="iquantity" style="width:13px;outline:none;border:none;" onchange="subTotal()" type="text" name="" value="<?php echo $row1['quantity'];?>"> <br> <br>
                       </form></td>
                         <td  style="border:1px solid lightgray;" class="itotal"></td>
                     <?php

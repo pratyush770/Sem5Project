@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2023 at 05:53 PM
+-- Generation Time: Sep 28, 2023 at 03:46 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -51,7 +51,7 @@ CREATE TABLE `payment_details` (
 --
 
 INSERT INTO `payment_details` (`payment_id`, `fname`, `email2`, `addr`, `ccity`, `cstate`) VALUES
-(1, 'Pratyush Majumdar', 'pratyushmajumdar27@gmail.com', 'Yamuna Nagar', 'Pune', 'Maharashtra');
+(1, 'Pratyush Majumdar', 'pratyushmajumdar27@gmail.com', 'Yamuna Nagar Nigdi', 'Pune', 'Maharashtra');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `product` (`pid`, `pname`, `pcategory`, `pprice`, `imgupload`, `quan
 (2, 'Tree Lamp', 'E-Waste', '750', 'treelamp.jpg', '1', 'Brand - Tara', 'Color - Rambo', 'Metallic Wire', '1 year warranty'),
 (3, 'Water Bottle', 'Plastic', '399', 'bottle.jpg', '1', 'Brand - Cello', 'Material - Plastic', 'Bottle Type - Standard Bottle', 'Capacity - 1 litre'),
 (4, 'Pen Stand', 'Plastic', '399', '61d1HPzGEmL.jpg', '1', 'Brand - Cello', 'Colour - White', 'Material - Plastic', 'Pen Stand Type - Standard Stand'),
-(5, 'Photo Frame', 'Paper', '299', 'Photo_frame_side.webp', '1', 'Technique - Handmade', 'Great idea for wedding gifts and anniversary gifts', 'Brand - AJANTA', '2 years warrant'),
+(5, 'Photo Frame', 'Paper', '299', 'Photo_frame_side.webp', '1', 'Technique - Handmade', 'Great idea for wedding gifts and anniversary gifts', 'Brand - AJANTA', '2 years warranty'),
 (6, 'Wall Hanging', 'Paper', '489', 'wall-hanging-craft-with-paper-easy-683x1024.jpg', '1', 'Technique - Handmade', 'Multi color', 'Pack of 3', '1 year warranty'),
 (8, 'Cloth Bag', 'Clothes', '300', 'j7652hgshf.jpg', '1', 'Brand - Kuber', 'Material - Cloth', 'Made of used clothes', '1 year warranty'),
 (10, 'Table Cloth', 'Clothes', '389', 'datatable-cover-60x60-inch_1-750x650.jpg', '1', 'Product Dimensions - 152.4L x 101.6W cm', 'Shape - Rectangular', 'Material - Cloth', '2 years warranty'),
