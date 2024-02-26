@@ -51,7 +51,7 @@ $all_product=$con->query($sql);
   </header>
     </div>
 <main>
-<h2 class="text-center" style="font-family:'Poppins';">E-Waste Products</h2>
+<h2 class="text-center" style="font-family:'Poppins';margin-top:-20px;">E-Waste Products</h2>
   <?php
   while($row = mysqli_fetch_assoc($all_product)){ 
   ?>

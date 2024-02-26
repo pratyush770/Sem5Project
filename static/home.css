@@ -159,7 +159,8 @@ header ul li{
     transition: 2s;
 }
 .slide img{
-   width: 800px;
+    margin-top:-20px;
+    width:800px;
     height: 500px;
 }
 .navigation-mannual{
@@ -239,7 +240,7 @@ header ul li{
 }
 .commitment{
     margin-left: 270px;
-    margin-top:40px;
+    margin-top:35px;
     font-family:'Poppins';
     font-weight: normal;
 }

@@ -157,6 +157,7 @@ header ul li{
     margin-bottom: 50px;
     margin-left: 80px;
     margin-right: 80px;
+    margin-top:-20px;
   }
   
   .collection-card {
@@ -252,9 +253,9 @@ footer ul li{
     margin-top: 12px;
 }
 .myImg{
-  margin-top:-18px;
+  margin-top:-16px;
   margin-left:100px;
-  height:549px;
+  height:500px;
   width:1000px;
   border-radius: 10px;
 }
@@ -263,7 +264,7 @@ footer ul li{
   margin-right: 70px;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.750);
-  margin-top: 45px;
+  margin-top: 25px;
 }
 .parahr{
   margin-left:100px;

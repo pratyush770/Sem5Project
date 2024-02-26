@@ -247,7 +247,7 @@ footer ul li{
 .homeImg{
     width:500px;
     height: 470px;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-left: 150px; 
   }
   .section{
@@ -259,7 +259,7 @@ footer ul li{
     padding:0;
   }
   .h3one{
-    margin-top: 75px;
+    margin-top: 65px;
     margin-left:200px;
     margin-bottom: 3px;
   }
@@ -272,7 +272,7 @@ footer ul li{
     height:440px;
     width:300px;
     margin-left:70px;
-    margin-top:60px;
+    margin-top:40px;
     border-radius: 10px;
   }
   .column h4{
